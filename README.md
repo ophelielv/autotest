@@ -9,6 +9,7 @@
 
    run the app:
      > SET DEBUG=autotestback:* & npm start
+     or > npm start
 
     http://localhost:3000/
 
