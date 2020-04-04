@@ -1,8 +1,14 @@
 // Require the built in 'assertion' library
-var assert = require('assert');
+// or // const { expect } = require('chai'); ???
+const assert = require('assert');
+const ConnectionPaqe = require('../pages/ConnectionPage');
+
 console.log("TEST1.SPEC.JS")
 // Create a test suite (group) called Math
-describe('Math', function () {
+describe('Math', async function () {
+
+  const myConnectionPage = new ConnectionPaqe();
+  await myConnectionPage.connect();
   // Test One: A string explanation of what we're testing
   it('should test if 3*3 = 9', function () {
     // Our actual test: 3*3 SHOULD EQUAL 9

@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
  * GET users page.
  */
 router.get('/users', function (req, res, next) {
-  const mochaService = new MochaService('test2');
+  const mochaService = new MochaService('test1');
   mochaService.run();
 
   res.render('index', { title: 'Users' });
