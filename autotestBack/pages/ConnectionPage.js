@@ -1,7 +1,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
+const { URL_CONNECTION_TO_DRIVE } = require('../pages/Constants.URL');
+const { USERNAME, USERPASS } = require('../pages/Constants.Users');
 
-// const URL_CONNECTION_TO_DRIVE = require('../pages/Constants.URL');
-// npm install -g chromedriver --save
 class ConnectionPage {
 
   constructor() {
@@ -15,9 +15,12 @@ class ConnectionPage {
   async connect() {
     await this.init();
     try {
-      await this.driver.get('http://www.google.com/ncr');
-      await this.driver.findElement(By.name('q')).sendKeys('webdriver', Key.RETURN);
-      await this.driver.wait(until.titleIs('webdriver - Google Search'), 1000);
+      await this.driver.get(URL_CONNECTION_TO_DRIVE);
+      await this.driver.findElement(By.name('identifier')).sendKeys(USERNAME, Key.RETURN);
+      await this.driver.sleep(3000);
+      await this.driver.findElement(By.name('password')).sendKeys(USERPASS, Key.RETURN);
+    } catch (error) {
+      console.error(error);
     } finally {
       await this.driver.quit();
     }
@@ -25,4 +28,5 @@ class ConnectionPage {
 }
 
 module.exports = ConnectionPage;
+// await this.driver.wait(until.titleIs('webdriver - Google Search'), 1000);
 
