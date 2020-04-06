@@ -1,22 +1,28 @@
 // Require the built in 'assertion' library
 // or // const { expect } = require('chai'); ???
 const assert = require('assert');
-const ConnectionPaqe = require('../pages/ConnectionPage');
+const ConnectionPage = require('../pages/connectionPage');
+const SeleniumService = require('../services/selenium.service');
 
 console.log("TEST1.SPEC.JS")
-// Create a test suite (group) called Math
-describe('Math', async function () {
 
-  const myConnectionPage = new ConnectionPaqe();
-  await myConnectionPage.connect();
-  // Test One: A string explanation of what we're testing
-  it('should test if 3*3 = 9', function () {
-    // Our actual test: 3*3 SHOULD EQUAL 9
-    assert.equal(9, 3 * 3);
+
+// Create a test suite (group) called Math
+describe('Connection to google drive', async function () {
+
+  const driver = await (new SeleniumService()).build();
+
+  const myConnectionPage = new ConnectionPage(driver);
+  await myConnectionPage.connectToDrive();
+
+  const driveH1 = await myConnectionPage.getTitle();
+  console.log(driveH1);
+
+  it('should be "Drive"', function () {
+    console.log("ITTTTTTT")
+    assert.equal(driveH1, "Mon Drive");
   });
-  // Test Two: A string explanation of what we're testing
-  it('should test if (3-4)*8 = -8', function () {
-    // Our actual test: (3-4)*8 SHOULD EQUAL -8
-    assert.equal(-8, (3 - 4) * 8);
-  });
+
+  await driver.quit();
+
 });

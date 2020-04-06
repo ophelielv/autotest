@@ -13,6 +13,16 @@
 
     http://localhost:3000/
 
+
+Order of calls / stacktrace:
+1. /routes/index.js
+2. /services/mocha.service.js
+3. /suites/test1.spec.js
+4. /services/selenium.service.js which calls the following files:
+* /pages/connectionPage.service.js
+* /constants/urls.constants.js
+* /constants/users.constants.js
+
 ## Front 
 Success! Created autotestfront at C:\Projects\autotest\autotestfront
 Inside that directory, you can run several commands:
