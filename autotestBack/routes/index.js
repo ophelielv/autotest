@@ -14,9 +14,10 @@ router.get('/', (req, res, next) => {
  */
 router.get('/users', async (req, res, next) => {
   const mochaService = new MochaService('test1');
-  await mochaService.run();
+  const results = await mochaService.run();
+  console.log('RESULT: ', results);
 
-  res.render('index', { title: 'Users' });
+  res.render('index', { title: 'Users ' + JSON.stringify(results) });
 });
 
 module.exports = router;
