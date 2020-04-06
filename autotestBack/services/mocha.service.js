@@ -7,28 +7,26 @@ class MochaService {
 
   constructor(testName) {
 
+
     const TESTS_DIR = 'suites';
-    this.mocha = new Mocha(/*{
-      ui: 'bdd',
-      reporter: 'list'
-    }*/);
+    const TIMEOUT = 60 * 1000;
+
+    this.mocha = new Mocha({
+      // ui: 'bdd',
+      // reporter: 'list'
+      timeout: TIMEOUT.toString(),
+    });
 
     this.mocha.addFile(`${TESTS_DIR}/${testName}.spec.js`);
   }
 
   run() {
     return this.mocha.run()
-      .on('test', (test) => console.log('..Test started: ' + test.title))
-      .on('test end', (test) => console.log('..Test done: ' + test.title))
-      .on('pass', (test) => {
-        console.log('................ Test passed');
-        console.log(test);
-      })
-      .on('fail', (test, err) => {
-        console.log('..Test fail');
-      })
-      .on('end', () => console.log('All done'))
-      ;
+      .on('test', (test) => console.log('Test started: ' + test.title))
+      .on('test end', (test) => console.log('Test done: ' + test.title))
+      .on('pass', (test) => console.log('Test passed', test.title))
+      .on('fail', (test, err) => console.log('Test fail'))
+      .on('end', () => console.log('All done !'));
   }
 }
 
