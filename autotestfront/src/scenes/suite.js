@@ -1,18 +1,17 @@
 import React from 'react';
 import './suite.css';
-import Navigation from '../components/navigation';
 import Iteration from '../components/iteration';
 
 function Suite() {
 
   return (
-    <div>
-      <Navigation />
-
-      <p>SUITE DE TEST</p>
+    <main>
+      <h2>SUITE DE TEST</h2>
 
       <Iteration />
-    </div>
+      <Iteration />
+      <Iteration />
+    </main>
   );
 }
 

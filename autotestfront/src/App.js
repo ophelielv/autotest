@@ -1,20 +1,25 @@
 import React from 'react';
-// import logo from './logo.svg';
+import Navigation from './components/navigation';
+import {
+  BrowserRouter as Router,
+  // Switch,
+  // Route,
+  // Link
+} from "react-router-dom";
 import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Autotest</h1>
-      </header>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>Autotest</h1>
+        </header>
 
-      <main>
-        MAIN
-      </main>
+        <Navigation />
 
-      <footer> @2020 </footer>
-    </div>
+        <footer> @2020 </footer>
+      </div>
+    </Router >
   );
 }
 
