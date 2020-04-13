@@ -1,35 +1,32 @@
 import React from 'react';
-import {
-  // BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './navigation.css';
 
-import Suite from '../scenes/suite'
-import Home from '../scenes/home'
-
-function Navigation() {
-
+function Navigation(props) {
+  const suites = [
+    {
+      id: 1, name: 'Suite 1',
+    },
+    {
+      id: 2, name: 'Suite 2',
+    }
+  ]
   return (
-    <div>
-
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/suite">Suite</Link></li>
-        </ul>
-      </nav>
-
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-
-      <Switch>
-        <Route path="/suite"><Suite /></Route>
-        <Route path="/"><Home /></Route>
-      </Switch>
-    </div>
+    <nav className="AppNav">
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li>
+          <Link to="/suite">Suites</Link>
+          <ul>
+            {suites.map(suite => (
+              <li key={suite.id}>
+                <button>{suite.name}</button>
+              </li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
