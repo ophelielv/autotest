@@ -3,7 +3,7 @@ import './home.css';
 
 function Home() {
   return (
-    <main className="AppContainer">
+    <main className="Main-container">
       <h1>Home</h1>
     </main>
   );

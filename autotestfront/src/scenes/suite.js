@@ -44,7 +44,7 @@ function Suite() {
   ];
 
   return (
-    <main className="AppContainer">
+    <main className="Main-container">
       <h1>Tests suite</h1>
       <h2>Presentation</h2>
       <p>

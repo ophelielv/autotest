@@ -12,7 +12,7 @@ function Navigation(props) {
     }
   ]
   return (
-    <nav className="AppNav">
+    <nav className="App-nav">
       <ul>
         <li><Link to="/">Home</Link></li>
         <li>

@@ -1,7 +1,19 @@
 .App {
-  padding: 20px 40px; 
   background-color: rgb(30, 31, 34);
   color: rgb(212, 212, 212);
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.App-header {
+  grid-column: 1 / -1;
+  padding: 20px 10px;
+}
+
+.App-footer {
+  text-align: center;
+  padding: 20px 10px;
+  grid-column: 1 / -1;
 }
 
 h1 { color: maroon; text-align: center;}
@@ -10,22 +22,20 @@ h3 { color: blueviolet;}
 h4 { color: mediumpurple}
 a { color: gainsboro; }
 
-label{
+label {
   margin-right: 10px;
 }
 
-footer {
-  text-align: center;
-  padding: 20px 10px;
+.Main-container{ 
+  background-color: teal;
+  padding: 20px 20px;
 }
 
-.AppContainer{
-
+.App-nav {
+  background-color: brown;
+  padding: 20px 20px;
 }
 
-.AppNav {
-  
-}
 /* 
 .App-logo {
   height: 40vmin;
