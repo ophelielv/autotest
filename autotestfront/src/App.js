@@ -27,7 +27,7 @@ function App() {
           <Route path="/"><Home /></Route>
         </Switch>
 
-        <footer className="App-footer"> @2020 </footer>
+        {/* <footer className="App-footer"> @2020 </footer> */}
       </div>
 
     </Router >

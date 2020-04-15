@@ -1,6 +1,6 @@
 .App {
-  background-color: rgb(30, 31, 34);
-  color: rgb(212, 212, 212);
+  background-color: #BEBDBF;
+  color: #3C3C40;
   display: grid;
   grid-template-columns: auto 1fr;
 }
@@ -9,69 +9,42 @@
   grid-column: 1 / -1;
   padding: 20px 10px;
   text-align: center;
-  background-color: brown;
+  background-color: #0D0D0D;
+  color: #BEBDBF;
   text-transform: uppercase;
 }
 
-.App-footer {
+/* .App-footer {
   text-align: center;
   padding: 20px 10px;
   grid-column: 1 / -1;
   background-color: brown;
-}
+} */
 
-h1 { color: maroon; text-align: center;}
-h2 { color: orange;}
-h3 { color: blueviolet;}
-h4 { color: mediumpurple}
-a { color: gainsboro; }
+/* COLORS
+  #DCE4F2 light blue
+  #8EA67C green ---
+  #CED9BF light green ----
+  #402820 brown
+  #734B3D caramel
+
+  #3C3C40 dark grey
+  #89888C medium grey
+  #BEBDBF light grey
+  #A0A68A pale green
+  #0D0D0D dark
+*/
+
+h1 { color: #3C3C40; text-align: center; }
+h2 { color: #3C3C40; }
+h3 { color: #3C3C40; }
+h4 { color: #3C3C40; }
 
 label {
   margin-right: 10px;
+  font-weight: bold;
 }
 
 .Main-container{ 
   padding: 20px 20px;
 }
-
-.App-nav {
-  background-color: teal;
-  padding: 20px 20px;
-}
-
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/

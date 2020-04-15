@@ -1,3 +1,38 @@
+.App-nav {
+  background-color: #3C3C40;
+  padding: 20px 20px;
+  min-width: 15vw;
+}
+
 ul {
-  color: rebeccapurple;
+  padding: 0;
+}
+
+li {
+  color: #BEBDBF;
+  list-style-type: none;
+}
+
+ul.level-1 li{
+  font-weight: bold;
+}
+
+ul.level-2 li {
+  font-weight: normal;
+}
+
+ul.level-2 {
+  padding-left: 15px;
+}
+
+a { 
+  color: #8EA67C; 
+}
+
+a:hover, a:focus { 
+  color: #CED9BF; 
+}
+
+a:visited { 
+  color: #8EA67C; 
 }

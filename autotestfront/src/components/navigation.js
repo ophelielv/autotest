@@ -13,13 +13,13 @@ function Navigation(props) {
   ]
   return (
     <nav className="App-nav">
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li>Suites
-          <ul>
+      <ul className="level-1">
+        <li className="link-1" key="link-home"><Link to="/">Home</Link></li>
+        <li className="link-1" key="suites-title">Suites
+          <ul className="level-2">
             {suites.map(suite =>
               <li>
-                <Link to={`/suite/${suite.id}`}>{suite.name}</Link>
+                <Link className="link-2" to={`/suite/${suite.id}`} key={`link-suite-${suite.id}`}>{suite.name}</Link>
               </li>
             )}
           </ul>

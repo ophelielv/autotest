@@ -5,7 +5,7 @@ function Test(props) {
   const { test } = props;
 
   return (
-    <section>
+    <section className="test">
       <h3>{test.name}</h3>
 
       <p>{test.description}</p>
