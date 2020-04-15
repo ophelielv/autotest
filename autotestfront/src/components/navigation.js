@@ -15,14 +15,13 @@ function Navigation(props) {
     <nav className="App-nav">
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li>
-          <Link to="/suite">Suites</Link>
+        <li>Suites
           <ul>
-            {suites.map(suite => (
-              <li key={suite.id}>
-                <button>{suite.name}</button>
+            {suites.map(suite =>
+              <li>
+                <Link to={`/suite/${suite.id}`}>{suite.name}</Link>
               </li>
-            ))}
+            )}
           </ul>
         </li>
       </ul>

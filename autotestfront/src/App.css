@@ -8,12 +8,16 @@
 .App-header {
   grid-column: 1 / -1;
   padding: 20px 10px;
+  text-align: center;
+  background-color: brown;
+  text-transform: uppercase;
 }
 
 .App-footer {
   text-align: center;
   padding: 20px 10px;
   grid-column: 1 / -1;
+  background-color: brown;
 }
 
 h1 { color: maroon; text-align: center;}
@@ -27,12 +31,11 @@ label {
 }
 
 .Main-container{ 
-  background-color: teal;
   padding: 20px 20px;
 }
 
 .App-nav {
-  background-color: brown;
+  background-color: teal;
   padding: 20px 20px;
 }
 

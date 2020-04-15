@@ -1,9 +1,14 @@
 import React from 'react';
+import {
+  useParams
+} from 'react-router-dom';
 import './suite.css';
 import Iteration from '../components/iteration';
 import Test from './test';
 
 function Suite() {
+
+  const { suiteId } = useParams();
 
   const tests = [
     {
@@ -45,7 +50,7 @@ function Suite() {
 
   return (
     <main className="Main-container">
-      <h1>Tests suite</h1>
+      <h1>Tests suite {suiteId}</h1>
       <h2>Presentation</h2>
       <p>
         Suite description. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium

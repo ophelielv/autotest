@@ -3,7 +3,7 @@ import Navigation from './components/navigation';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 import './App.css';
 
@@ -23,7 +23,7 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/suite"><Suite /></Route>
+          <Route path="/suite/:suiteId"><Suite /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
 
