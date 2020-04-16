@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// Fonts
+// import '@openfonts/yantramanav_all';
+// import 'lato-font';
+// import 'notosans-fontface';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

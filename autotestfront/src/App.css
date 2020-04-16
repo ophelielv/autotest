@@ -1,8 +1,19 @@
+@font-face { font-family: 'Nunito'; src: local('Nunito'), url(./fonts/Nunito-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'Nunito'; font-weight: 900; src: local('Nunito'), url(./fonts/Nunito-Bold.ttf) format('truetype'); }
+@font-face { font-family: 'Nunito'; font-weight: 900; src: local('Nunito'), url(./fonts/Nunito-Black.ttf) format('truetype'); }
+
+@font-face { font-family: 'Arvo'; src: local('Arvo'), url(./fonts/Arvo-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'Arvo'; font-weight: 900; src: local('Arvo'), url(./fonts/Arvo-Bold.ttf) format('truetype'); }
+
+@font-face { font-family: 'IstokWeb'; src: local('IstokWeb'), url(./fonts/IstokWeb-Regular.ttf) format('truetype'); }
+@font-face { font-family: 'IstokWeb'; font-weight: 900; src: local('IstokWeb'), url(./fonts/IstokWeb-Bold.ttf) format('truetype'); }
+
 .App {
   background-color: #BEBDBF;
   color: #3C3C40;
   display: grid;
   grid-template-columns: auto 1fr;
+  font-family: IstokWeb;
 }
 
 .App-header {
@@ -12,6 +23,8 @@
   background-color: #0D0D0D;
   color: #BEBDBF;
   text-transform: uppercase;
+  font-family: Nunito;
+  letter-spacing: 3px;
 }
 
 /* .App-footer {
@@ -35,10 +48,10 @@
   #0D0D0D dark
 */
 
-h1 { color: #3C3C40; text-align: center; }
-h2 { color: #3C3C40; }
-h3 { color: #3C3C40; }
-h4 { color: #3C3C40; }
+h1 { color: #3C3C40; font-family: Nunito; font-size: 4em; text-align: center; }
+h2 { color: #3C3C40; font-family: Nunito; font-size: 2em; }
+h3 { color: #3C3C40; font-family: Arvo; }
+h4 { color: #3C3C40; font-family: Arvo; }
 
 label {
   margin-right: 10px;
