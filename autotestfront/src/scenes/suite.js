@@ -64,14 +64,19 @@ function Suite() {
         perferendis doloribus asperiores repellat.
       </p>
 
-      {tests.map(test =>
-        <Test test={test} key={test.key} />
-      )}
+      <section className="test-section">
+        <h2>Tests</h2>
+        {tests.map(test =>
+          <Test test={test} key={test.key} />
+        )}
+      </section>
 
-      <h2>Launches and results</h2>
-      {iterations.map(iteration =>
-        <Iteration iteration={iteration} />
-      )}
+      <section className="iteration-section">
+        <h2>Launches and results</h2>
+        {iterations.map(iteration =>
+          <Iteration iteration={iteration} />
+        )}
+      </section>
 
       <button>Start</button>
     </main>

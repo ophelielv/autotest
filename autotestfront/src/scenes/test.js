@@ -5,7 +5,7 @@ function Test(props) {
   const { test } = props;
 
   return (
-    <section className="test">
+    <article className="test">
       <h3>{test.name}</h3>
 
       <p>{test.description}</p>
@@ -16,7 +16,7 @@ function Test(props) {
       <button>Save</button>
       <button>Reset</button>
 
-    </section>
+    </article>
   );
 }
 
