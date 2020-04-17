@@ -17,6 +17,8 @@ function Test(props) {
       <Button>Save</Button>
       <Button type="default" level="secondary">Reset</Button>
       <Button type="push">Reset</Button>
+      <Button type="push" level="secondary">Reset</Button>
+      <Button type="push" level="danger">Reset</Button>
 
     </article>
   );

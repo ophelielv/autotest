@@ -8,7 +8,6 @@ button {
   padding: 15px 0;
   width: 120px;
   font-weight: bold;
-  /* color: #3C3C40; */
   text-align: center;
   text-decoration: none;
   position: relative;
@@ -16,29 +15,70 @@ button {
   cursor: pointer;
 }
 
-button.default.primary {
-  color: #3C3C40;
-}
-
-button.default.secondary {
-  color: #009FFD;
-}
 button:active {
   background: rgba(255, 255, 255, .5);
 }
 
-.primary.default:before, .primary.default:after, 
-.primary.default span:before, .primary.default span:after  {
+button.animate.primary {
+  color: #3C3C40;
+}
+
+.primary.animate:before, .primary.animate:after, 
+.primary.animate span:before, .primary.animate span:after  {
   background: #3C3C40;
 }
-.secondary.default:before, .secondary.default:after,
-.secondary.default span:before, .secondary.default span:after  {
+
+.primary.push {
+  background: #F7F7F7;
+  -webkit-box-shadow: 0px 5px 0px #3C3C40;
+  -moz-box-shadow: 0px 5px 0px #3C3C40;
+  -ms-box-shadow: 0px 5px 0px #3C3C40;
+  -o-box-shadow: 0px 5px 0px #3C3C40;
+  box-shadow: 0px 5px 0px #3C3C40;
+  text-shadow: 1px 1px 1px #BEBDBF;
+}
+
+
+button.animate.secondary {
+  color: #009FFD;
+}
+.secondary.animate:before, .secondary.animate:after,
+.secondary.animate span:before, .secondary.animate span:after {
   background: #009FFD;
 }
+
+.secondary.push {
+  background: #F7F7F7; 
+  -webkit-box-shadow: 0px 5px 0px #009FFD;
+  -moz-box-shadow: 0px 5px 0px #009FFD;
+  -ms-box-shadow: 0px 5px 0px #009FFD;
+  -o-box-shadow: 0px 5px 0px #009FFD;
+  box-shadow: 0px 5px 0px #009FFD;
+  text-shadow: 1px 1px 1px #ECECEC;
+}
+
+button.animate.danger {
+  color: #90001c;
+}
+.danger.animate:before, .danger.animate:after,
+.danger.animate span:before, .danger.animate span:after {
+  background: #90001c;
+}
+
+.danger.push {
+  background: #ffa8a8;
+  -webkit-box-shadow: 0px 5px 0px #90001c;
+  -moz-box-shadow: 0px 5px 0px #90001c;
+  -ms-box-shadow: 0px 5px 0px #90001c;
+  -o-box-shadow: 0px 5px 0px #90001c;
+  box-shadow: 0px 5px 0px #90001c;
+  text-shadow: 1px 1px 1px pink;
+}
+
 /* ************************************* */
 /* ************ Default **************** */
 /* ************************************* */
-.default:before {
+.animate:before {
   content: "";
   width: 100%;
   height: 1px;
@@ -48,7 +88,7 @@ button:active {
   transition: .1s ease-in-out .1s;
 }
 
-.default:after {
+.animate:after {
   content: "";
   width: 1px;
   height: 100%;
@@ -58,7 +98,7 @@ button:active {
   transition: .1s ease-in-out .2s;
 }
 
-.default span:before {
+.animate span:before {
   content: "";
   width: 100%;
   height: 1px;
@@ -68,7 +108,7 @@ button:active {
   transition: .1s ease-in-out .3s;
 }
 
-.default span:after {
+.animate span:after {
   content: "";
   width: 1px;
   height: 100%;
@@ -78,50 +118,55 @@ button:active {
   transition: .1s ease-in-out;
 }
 
-.default:hover span:after {
+.animate:hover span:after {
   height: 0;
 }
 
-.default:hover:before {
+.animate:hover:before {
   width: 0;
 }
 
-.default:hover:after {
+.animate:hover:after {
   height: 0;
 }
 
-.default:hover span:before {
+.animate:hover span:before {
   height: 5px;
 }
 
 /* ************************************* */
 /* ************ Push **************** */
 /* ************************************* */
+
 .push {
-  text-indent: -9999em;
+  padding: 15px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0px 5px 0px #c4c4c4;
+  -moz-box-shadow: 0px 5px 0px #c4c4c4;
+  -ms-box-shadow: 0px 5px 0px #c4c4c4;
+  -o-box-shadow: 0px 5px 0px #c4c4c4;
+  box-shadow: 0px 5px 0px #c4c4c4;
+  text-shadow: 1px 1px 1px #fff;
+  -webkit-transition: All 250ms ease;
+  -moz-transition: All 250ms ease;
+  -o-transition: All 250ms ease;
+  -ms-transition: All 250ms ease;
+  transition: All 250ms ease;
 }
 
-.push:before {
-  content: "START";
-  padding-top: 16px;
-  width: 100%;
-  height: 100%;
-  color: #3C3C40;
-  text-indent: 0;
-  background: #78cdff;
-  /* background: #b40023; */
-  box-sizing: border-box;
-  box-shadow: 10px 10px 0 #009FFD;
-  /* box-shadow: 10px 10px 0 #90001c; */
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  z-index: 2;
-  transition: .2s ease-in-out;
-}
-
-.push:hover:before {
-  top: 0;
-  left: 0;
-  box-shadow: 0 0 0 #009FFD;
+.push:active {
+  position: relative;
+  top: 5px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: All 250ms ease;
+  -moz-transition: All 250ms ease;
+  -o-transition: All 250ms ease;
+  -ms-transition: All 250ms ease;
+  transition: All 250ms ease;
 }
