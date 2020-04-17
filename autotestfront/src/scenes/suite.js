@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import './suite.css';
 import Iteration from '../components/iteration';
+import Button from '../components/button';
 import Test from './test';
 
 function Suite() {
@@ -78,7 +79,7 @@ function Suite() {
         )}
       </section>
 
-      <button>Start</button>
+      <Button level="go">Start</Button>
     </main>
   );
 }

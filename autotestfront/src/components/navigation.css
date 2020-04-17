@@ -23,16 +23,16 @@ ul.level-1 li{
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 2em;
-  padding-left: 20px;
+  padding-left: 30px;
   padding-right: 20px;
 }
 
 ul.level-2 li {
   font-weight: normal;
   line-height: 1.5em;
-  margin-left: -20px;
+  margin-left: -30px;
   margin-right: -20px;
-  padding-left: 40px;
+  padding-left: 50px;
 }
 
 a { 

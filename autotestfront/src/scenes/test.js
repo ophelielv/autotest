@@ -1,5 +1,6 @@
 import React from 'react';
 import './test.css';
+import Button from '../components/button';
 
 function Test(props) {
   const { test } = props;
@@ -13,8 +14,8 @@ function Test(props) {
       <label>Label</label>
       <input type="text" name="inp" />
 
-      <button>Save</button>
-      <button>Reset</button>
+      <Button level="primary">Save</Button>
+      <Button level="secondary">Reset</Button>
 
     </article>
   );
