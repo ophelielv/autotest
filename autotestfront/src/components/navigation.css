@@ -1,7 +1,8 @@
 .App-nav {
   background-color: #3C3C40;
-  padding: 20px 20px;
+  padding: 20px 0px;
   min-width: 15vw;
+  font-family: Arvo;
 }
 
 ul {
@@ -9,25 +10,29 @@ ul {
 }
 
 li {
+  padding: 10px 0px; 
   color: #BEBDBF;
   list-style-type: none;
 }
 
+li.link-hover:hover {
+  background-color: #0D0D0D;
+}
+
 ul.level-1 li{
   font-weight: bold;
-  font-family: Nunito;
   letter-spacing: 1px;
   line-height: 2em;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 ul.level-2 li {
   font-weight: normal;
-  font-family: Arvo;
   line-height: 1.5em;
-}
-
-ul.level-2 {
-  padding-left: 15px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 40px;
 }
 
 a { 

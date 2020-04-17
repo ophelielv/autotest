@@ -48,10 +48,10 @@
   #0D0D0D dark
 */
 
-h1 { color: #3C3C40; font-family: Nunito; font-size: 4em; text-align: center; }
-h2 { color: #3C3C40; font-family: Nunito; font-size: 2em; }
-h3 { color: #3C3C40; font-family: Arvo; }
-h4 { color: #3C3C40; font-family: Arvo; }
+h1 { color: #3C3C40; font-family: Arvo; font-size: 4em; text-align: center; }
+h2 { color: #3C3C40; font-family: Arvo; font-size: 2em; font-weight: bold;}
+h3 { color: #3C3C40; font-family: Nunito; }
+h4 { color: #3C3C40; font-family: Nunito; }
 
 label {
   margin-right: 10px;
