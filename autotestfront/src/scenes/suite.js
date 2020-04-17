@@ -79,7 +79,7 @@ function Suite() {
         )}
       </section>
 
-      <Button level="go">Start</Button>
+      <Button type="push">Start</Button>
     </main>
   );
 }

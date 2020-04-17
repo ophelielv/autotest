@@ -14,8 +14,9 @@ function Test(props) {
       <label>Label</label>
       <input type="text" name="inp" />
 
-      <Button level="primary">Save</Button>
-      <Button level="secondary">Reset</Button>
+      <Button>Save</Button>
+      <Button type="default" level="secondary">Reset</Button>
+      <Button type="push">Reset</Button>
 
     </article>
   );
