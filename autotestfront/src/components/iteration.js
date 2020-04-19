@@ -15,15 +15,15 @@ function Iteration(props) {
       <h5>Data</h5>
       <table>
         <thead>
-          <tr>
+          <tr key="header">
             <th>Name</th>
             <th>Value</th>
           </tr>
         </thead>
 
         <tbody>
-          {iteration.parameters && iteration.parameters.map(param =>
-            <tr key={param.id}>
+          {iteration.parameters && iteration.parameters.map((param, idx) =>
+            <tr key={param.name + idx}>
               <td>{param.name}</td>
               <td>{param.value}</td>
             </tr>

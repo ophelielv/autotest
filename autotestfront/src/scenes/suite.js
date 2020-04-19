@@ -5,7 +5,7 @@ import {
 import './suite.css';
 import Iteration from '../components/iteration';
 import Button from '../components/button';
-import Test from './test';
+import Test from '../components/test';
 
 function Suite() {
 
@@ -13,10 +13,12 @@ function Suite() {
 
   const tests = [
     {
+      id: 1,
       name: 'Test 1',
       description: 'Test 1 description:',
     },
     {
+      id: 2,
       name: 'Test 2',
       description: 'Test 2 description.',
     },
@@ -68,14 +70,14 @@ function Suite() {
       <section className="test-section">
         <h2>Tests</h2>
         {tests.map(test =>
-          <Test test={test} key={test.key} />
+          <Test test={test} key={test.id} />
         )}
       </section>
 
       <section className="iteration-section">
         <h2>Launches and results</h2>
         {iterations.map(iteration =>
-          <Iteration iteration={iteration} />
+          <Iteration iteration={iteration} key={iteration.id} />
         )}
 
         <div className="launch-button">

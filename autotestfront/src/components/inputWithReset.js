@@ -14,11 +14,11 @@ function InputWithReset(props) {
     }
 
     setValue(evt.target.value);
-    console.log(evt.target.value);
   }
 
   const clickOnReset = () => {
-    setValue(initValue)
+    setValue(initValue);
+    setShowReset(false);
   }
 
 
