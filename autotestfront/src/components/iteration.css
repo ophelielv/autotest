@@ -1,7 +1,32 @@
-table td {
-  border: solid 1px gray;
+article.iteration {
+  background: #CED9BF; 
+  display: flex;
+  flex-direction: column;
 }
 
-article.iteration {
-  background: #CED9BF;
+td, th {
+  padding: 10px 20px;
+}
+
+td {
+  cursor: pointer;
+  border: none;
+}
+
+table {
+  margin-bottom: 25px;
+  border-radius: 4px;
+}
+
+thead {
+  background: #3C3C40;
+  color: #ECECEC;
+}
+ 
+tbody tr:nth-child(even){ 
+  background: #8EA67C;
+} 
+
+tbody tr:hover {
+  background: #8ea67ca6;
 }

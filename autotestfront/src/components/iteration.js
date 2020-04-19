@@ -6,13 +6,9 @@ function Iteration(props) {
   const { iteration } = props;
   return (
     <article className="iteration">
-      <h3>Iteration {iteration.id}</h3>
-      <p><strong>Result: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore.
-      </p>
+      <h3>Iteration {iteration.id} - <small>20/02/2020 10:05</small></h3>
 
-      <h5>Data</h5>
+      <h4>Data</h4>
       <table>
         <thead>
           <tr key="header">
@@ -30,6 +26,13 @@ function Iteration(props) {
           )}
         </tbody>
       </table>
+
+      <h4>Results</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore.
+      </p>
     </article>
   );
 }

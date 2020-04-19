@@ -31,6 +31,11 @@ function Suite() {
       parameters: [
         { name: 'Username', value: 'GDAV' },
         { name: 'Password', value: 'qwerty' },
+        { name: 'Age', value: '190' },
+        { name: 'Address', value: '' },
+        { name: 'Phone', value: '' },
+        { name: 'Email', value: 'gilbert.davros@test.com' },
+        { name: 'Code', value: 'AAA' },
       ]
     },
     {
