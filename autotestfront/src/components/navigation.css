@@ -5,21 +5,21 @@
   font-family: Arvo;
 }
 
-ul {
+.App-nav ul {
   padding: 0;
 }
 
-li {
+.App-nav li {
   padding: 10px 0px; 
   color: #BEBDBF;
   list-style-type: none;
 }
 
-li.link-hover:hover {
+.App-nav li.link-hover:hover {
   background-color: #0D0D0D;
 }
 
-ul.level-1 li{
+.App-nav ul.level-1 li{
   font-weight: bold;
   letter-spacing: 1px;
   line-height: 2em;
@@ -27,7 +27,7 @@ ul.level-1 li{
   padding-right: 20px;
 }
 
-ul.level-2 li {
+.App-nav ul.level-2 li {
   font-weight: normal;
   line-height: 1.5em;
   margin-left: -30px;
@@ -35,14 +35,14 @@ ul.level-2 li {
   padding-left: 50px;
 }
 
-a { 
+.App-nav a { 
   color: #8EA67C; 
 }
 
-a:hover, a:focus { 
-  color: #CED9BF; 
+.App-nav a:hover, a:focus { 
+  color: #C7DCAA; 
 }
 
-a:visited { 
+.App-nav a:visited { 
   color: #8EA67C; 
 }

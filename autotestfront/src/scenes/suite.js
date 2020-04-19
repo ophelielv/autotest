@@ -57,7 +57,7 @@ function Suite() {
   ];
 
   return (
-    <main className="Main-container">
+    <main className="Main-container Suite">
       <h1>Tests suite {suiteId}</h1>
       <h2>Presentation</h2>
       <p>

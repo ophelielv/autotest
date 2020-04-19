@@ -24,12 +24,12 @@ button.animate.primary {
   color: #3C3C40;
 }
 
-.primary.animate:before, .primary.animate:after, 
-.primary.animate span:before, .primary.animate span:after  {
+button.primary.animate:before, button.primary.animate:after, 
+button.primary.animate span:before, button.primary.animate span:after  {
   background: #3C3C40;
 }
 
-.primary.push {
+button.primary.push {
   background: #F7F7F7;
   -webkit-box-shadow: 0px 5px 0px #3C3C40;
   -moz-box-shadow: 0px 5px 0px #3C3C40;
@@ -39,16 +39,16 @@ button.animate.primary {
   text-shadow: 1px 1px 1px #BEBDBF;
 }
 
-
 button.animate.secondary {
   color: #009FFD;
 }
-.secondary.animate:before, .secondary.animate:after,
-.secondary.animate span:before, .secondary.animate span:after {
+
+button.secondary.animate:before, button.secondary.animate:after,
+button.secondary.animate span:before, button.secondary.animate span:after {
   background: #009FFD;
 }
 
-.secondary.push {
+button.secondary.push {
   background: #F7F7F7; 
   -webkit-box-shadow: 0px 5px 0px #009FFD;
   -moz-box-shadow: 0px 5px 0px #009FFD;
@@ -61,12 +61,13 @@ button.animate.secondary {
 button.animate.danger {
   color: #90001c;
 }
-.danger.animate:before, .danger.animate:after,
-.danger.animate span:before, .danger.animate span:after {
+
+button.danger.animate:before, button.danger.animate:after,
+button.danger.animate span:before, button.danger.animate span:after {
   background: #90001c;
 }
 
-.danger.push {
+button.danger.push {
   background: #ffa8a8;
   -webkit-box-shadow: 0px 5px 0px #90001c;
   -moz-box-shadow: 0px 5px 0px #90001c;
@@ -79,7 +80,7 @@ button.animate.danger {
 /* ************************************* */
 /* ************ Default **************** */
 /* ************************************* */
-.animate:before {
+button.animate:before {
   content: "";
   width: 100%;
   height: 1px;
@@ -89,7 +90,7 @@ button.animate.danger {
   transition: .1s ease-in-out .1s;
 }
 
-.animate:after {
+button.animate:after {
   content: "";
   width: 1px;
   height: 100%;
@@ -99,7 +100,7 @@ button.animate.danger {
   transition: .1s ease-in-out .2s;
 }
 
-.animate span:before {
+button.animate span:before {
   content: "";
   width: 100%;
   height: 1px;
@@ -109,7 +110,7 @@ button.animate.danger {
   transition: .1s ease-in-out .3s;
 }
 
-.animate span:after {
+button.animate span:after {
   content: "";
   width: 1px;
   height: 100%;
@@ -119,19 +120,19 @@ button.animate.danger {
   transition: .1s ease-in-out;
 }
 
-.animate:hover span:after {
+button.animate:hover span:after {
   height: 0;
 }
 
-.animate:hover:before {
+button.animate:hover:before {
   width: 0;
 }
 
-.animate:hover:after {
+button.animate:hover:after {
   height: 0;
 }
 
-.animate:hover span:before {
+button.animate:hover span:before {
   height: 5px;
 }
 
@@ -157,7 +158,7 @@ button.push {
   transition: All 250ms ease;
 }
 
-.push:active {
+button.push:active {
   position: relative;
   top: 5px;
   -webkit-box-shadow: none;

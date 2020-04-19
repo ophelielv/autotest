@@ -1,32 +1,38 @@
 article.iteration {
-  background: #CED9BF; 
+  background: #C7DCAA; 
   display: flex;
   flex-direction: column;
 }
 
-td, th {
+article.iteration td, th {
   padding: 10px 20px;
 }
 
-td {
+article.iteration td {
   cursor: pointer;
   border: none;
 }
 
-table {
+article.iteration table {
   margin-bottom: 25px;
   border-radius: 4px;
 }
 
-thead {
+article.iteration thead {
   background: #3C3C40;
   color: #ECECEC;
 }
  
-tbody tr:nth-child(even){ 
-  background: #8EA67C;
+article.iteration tbody tr:nth-child(even){ 
+  background: #8e9c84;
 } 
 
-tbody tr:hover {
-  background: #8ea67ca6;
+article.iteration tbody tr:hover {
+  background: #ddefd2;
+}
+
+article.iteration p {
+  padding: 15px 10px;
+  border-radius: 4px;
+  background-color: white;
 }

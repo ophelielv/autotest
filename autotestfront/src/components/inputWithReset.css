@@ -1,16 +1,16 @@
 
-.input-group {
+.input-group.input-group {
   display: flex;
   margin-bottom: 10px;
   align-items: center;
 }
 
-input {
+.input-group input {
   border: none;
   padding: 10px;
   flex-grow: 2;
 }
 
-label {
+.input-group label {
   text-transform: capitalize;
 }
