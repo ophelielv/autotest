@@ -2,7 +2,6 @@ import React from 'react';
 import './iteration.css';
 
 function Iteration(props) {
-  console.log("PROPS", props)
 
   const { iteration } = props;
   return (

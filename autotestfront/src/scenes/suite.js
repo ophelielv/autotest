@@ -77,9 +77,12 @@ function Suite() {
         {iterations.map(iteration =>
           <Iteration iteration={iteration} />
         )}
+
+        <div className="launch-button">
+          <Button type="push" level="danger">Launch tests</Button>
+        </div>
       </section>
 
-      <Button type="push">Start</Button>
     </main>
   );
 }
