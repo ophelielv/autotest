@@ -59,21 +59,22 @@ button.secondary.push {
 }
 
 button.animate.danger {
-  color: #90001c;
+  color: ghostwhite;
+  font-size: 20px;
 }
 
 button.danger.animate:before, button.danger.animate:after,
 button.danger.animate span:before, button.danger.animate span:after {
-  background: #90001c;
+  background: #614a4a;
 }
 
 button.danger.push {
-  background: #ffa8a8;
-  -webkit-box-shadow: 0px 5px 0px #90001c;
-  -moz-box-shadow: 0px 5px 0px #90001c;
-  -ms-box-shadow: 0px 5px 0px #90001c;
-  -o-box-shadow: 0px 5px 0px #90001c;
-  box-shadow: 0px 5px 0px #90001c;
+  background: #bf0000;
+  -webkit-box-shadow: 0px 5px 0px #614a4a;
+  -moz-box-shadow: 0px 5px 0px #614a4a;
+  -ms-box-shadow: 0px 5px 0px #614a4a;
+  -o-box-shadow: 0px 5px 0px #614a4a;
+  box-shadow: 0px 5px 0px #614a4a;
   text-shadow: 1px 1px 1px pink;
 }
 
