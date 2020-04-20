@@ -58,17 +58,21 @@ button.secondary.push {
   text-shadow: 1px 1px 1px #ECECEC;
 }
 
-button.animate.danger {
+button.animate.launch {
   color: ghostwhite;
   font-size: 20px;
 }
 
-button.danger.animate:before, button.danger.animate:after,
-button.danger.animate span:before, button.danger.animate span:after {
+button.launch span {
+  padding-left: 15px;
+}
+
+button.launch.animate:before, button.launch.animate:after,
+button.launch.animate span:before, button.launch.animate span:after {
   background: #614a4a;
 }
 
-button.danger.push {
+button.launch.push {
   background: #bf0000;
   -webkit-box-shadow: 0px 5px 0px #614a4a;
   -moz-box-shadow: 0px 5px 0px #614a4a;

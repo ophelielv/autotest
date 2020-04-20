@@ -86,7 +86,7 @@ function Suite() {
         )}
 
         <div className="launch-button">
-          <Button type="push" level="danger">Launch tests</Button>
+          <Button type="push" level="launch">Launch tests</Button>
         </div>
       </section>
 
