@@ -8,8 +8,10 @@ import Button from '../components/button';
 import Test from '../components/test';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
 
-function Suite() {
+import getAll from '../repository/axios'
 
+function Suite() {
+  getAll();
   const { suiteId } = useParams();
 
   const tests = [
