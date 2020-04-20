@@ -5,6 +5,7 @@ import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 function InputWithReset(props) {
   const { label, currentValue } = props;
+
   const [value, setValue] = useState(currentValue);
   const [initValue/*, setInitValue*/] = useState(currentValue);
   const [showReset, setShowReset] = useState(false);

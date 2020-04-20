@@ -7,8 +7,12 @@ function Iteration(props) {
   const { iteration } = props;
   const [showDetail, setShowDetail] = useState(false)
 
-  const clickOnShowDetail = () => setShowDetail(!showDetail);
   const detailButtonIcon = () => showDetail ? faAngleDoubleUp : faAngleDoubleDown;
+
+  const clickOnShowDetail = () => setShowDetail(!showDetail);
+
+  const clickOnDelete = () => console.log("TODO");
+  const clickOnReplay = () => console.log("TODO");
 
   return (
     <article className="iteration">
@@ -18,13 +22,7 @@ function Iteration(props) {
           <Button level="primary" icon={detailButtonIcon()}
             onClick={clickOnShowDetail}
           >
-            Detail
-          </Button>
-          <Button level="secondary" icon={faPlay}>
-            Replay
-          </Button>
-          <Button level="danger" icon={faTrash}>
-            Delete
+            Details
           </Button>
         </div>
       </div>
@@ -55,8 +53,19 @@ function Iteration(props) {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
             dolor in reprehenderit in voluptate velit esse cillum dolore.
-      </p>
-        </div>}
+        </p>
+
+          <div className="row">
+            <Button level="primary" icon={faPlay} onClick={clickOnReplay}>
+              Replay
+          </Button>
+            <Button level="danger" icon={faTrash} onClick={clickOnDelete}>
+              Delete
+          </Button>
+          </div>
+        </div>
+
+      }
     </article>
   );
 }

@@ -7,6 +7,8 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 function Test(props) {
   const { test } = props;
 
+  const clickOnSave = () => console.log("TODO");
+
   return (
     <article className="test">
       <h3>{test.name}</h3>
@@ -17,7 +19,7 @@ function Test(props) {
       <InputWithReset label="label" currentValue="set" />
       <InputWithReset label="label" currentValue="table" />
       <InputWithReset label="label" currentValue="num" />
-      <Button icon={faSave}>Save</Button>
+      <Button icon={faSave} onClick={clickOnSave}>Save</Button>
 
     </article>
   );
