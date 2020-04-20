@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from './button';
 import './inputWithReset.css';
+import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 function InputWithReset(props) {
   const { label, currentValue } = props;
@@ -35,7 +36,7 @@ function InputWithReset(props) {
 
       {showReset &&
         <Button
-          type="default" level="secondary"
+          type="default" level="secondary" icon={faUndo}
           onClick={clickOnReset}
         >
           Reset

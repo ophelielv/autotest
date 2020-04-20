@@ -6,6 +6,7 @@ import './suite.css';
 import Iteration from '../components/iteration';
 import Button from '../components/button';
 import Test from '../components/test';
+import { faRocket } from '@fortawesome/free-solid-svg-icons';
 
 function Suite() {
 
@@ -79,15 +80,15 @@ function Suite() {
         )}
       </section>
 
+      <section className="launch-button">
+        <Button type="push" level="launch" icon={faRocket}>Launch tests</Button>
+      </section>
+
       <section className="iteration-section">
-        <h2>Launches and results</h2>
+        <h2>Previous launches and results</h2>
         {iterations.map(iteration =>
           <Iteration iteration={iteration} key={iteration.id} />
         )}
-
-        <div className="launch-button">
-          <Button type="push" level="launch">Launch tests</Button>
-        </div>
       </section>
 
     </main>

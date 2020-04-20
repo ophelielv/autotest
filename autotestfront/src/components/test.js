@@ -2,6 +2,7 @@ import React from 'react';
 import './test.css';
 import Button from '../components/button';
 import InputWithReset from '../components/inputWithReset';
+import { faSave } from '@fortawesome/free-solid-svg-icons';
 
 function Test(props) {
   const { test } = props;
@@ -16,10 +17,7 @@ function Test(props) {
       <InputWithReset label="label" currentValue="set" />
       <InputWithReset label="label" currentValue="table" />
       <InputWithReset label="label" currentValue="num" />
-      <Button>Save</Button>
-      {/* <Button type="push">Reset</Button>
-      <Button type="push" level="secondary">Reset</Button>
-      <Button type="push" level="danger">Reset</Button> */}
+      <Button icon={faSave}>Save</Button>
 
     </article>
   );

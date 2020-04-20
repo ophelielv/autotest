@@ -1,6 +1,7 @@
 import React from 'react';
 import './iteration.css';
 import Button from '../components/button';
+import { faPlay, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Iteration(props) {
 
@@ -9,7 +10,10 @@ function Iteration(props) {
     <article className="iteration">
       <div class="row">
         <h3>Iteration {iteration.id} - <small>20/02/2020 10:05</small></h3>
-        <Button level="danger">DELETE</Button>
+        <div>
+          <Button icon={faPlay}>Replay</Button>
+          <Button level="danger" icon={faTrash}>Delete</Button>
+        </div>
       </div>
 
       <h4>Data</h4>
