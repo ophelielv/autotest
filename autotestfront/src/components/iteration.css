@@ -4,6 +4,12 @@ article.iteration {
   flex-direction: column;
 }
 
+article.iteration div.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 article.iteration td, th {
   padding: 10px 20px;
 }

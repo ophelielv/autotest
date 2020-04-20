@@ -1,12 +1,16 @@
 import React from 'react';
 import './iteration.css';
+import Button from '../components/button';
 
 function Iteration(props) {
 
   const { iteration } = props;
   return (
     <article className="iteration">
-      <h3>Iteration {iteration.id} - <small>20/02/2020 10:05</small></h3>
+      <div class="row">
+        <h3>Iteration {iteration.id} - <small>20/02/2020 10:05</small></h3>
+        <Button level="danger">DELETE</Button>
+      </div>
 
       <h4>Data</h4>
       <table>

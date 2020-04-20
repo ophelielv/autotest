@@ -13,13 +13,14 @@ button {
   cursor: pointer;
 }
 
+/* ************************************* */
+/* ************ Colors  **************** */
+/* ************************************* */
 button:active {
   background: rgba(255, 255, 255, .5);
 }
 
-button.animate {
-  padding: 10px 20px;
-}
+/* ************ Color: Primary *********************** */
 button.animate.primary {
   color: #3C3C40;
 }
@@ -39,6 +40,7 @@ button.primary.push {
   text-shadow: 1px 1px 1px #BEBDBF;
 }
 
+/* ************ Color: Secondary *********************** */
 button.animate.secondary {
   color: #009FFD;
 }
@@ -58,6 +60,27 @@ button.secondary.push {
   text-shadow: 1px 1px 1px #ECECEC;
 }
 
+/* ************ Color: Danger *********************** */
+button.animate.danger {
+  color: #90001c;
+  background: #ffa8a8;
+}
+
+button.danger.animate:before, button.danger.animate:after,
+button.danger.animate span:before, button.danger.animate span:after {
+  background: #90001c;
+}
+
+button.danger.push {
+  -webkit-box-shadow: 0px 5px 0px #90001c;
+  -moz-box-shadow: 0px 5px 0px #90001c;
+  -ms-box-shadow: 0px 5px 0px #90001c;
+  -o-box-shadow: 0px 5px 0px #90001c;
+  box-shadow: 0px 5px 0px #90001c;
+  background: #bf0000;
+  text-shadow: 1px 1px 1px pink;
+}
+/* ************ Color: Launch *********************** */
 button.animate.launch {
   color: ghostwhite;
   font-size: 20px;
@@ -83,8 +106,12 @@ button.launch.push {
 }
 
 /* ************************************* */
-/* ************ Default **************** */
+/* ************ Animate **************** */
 /* ************************************* */
+button.animate {
+  padding: 10px 20px;
+}
+
 button.animate:before {
   content: "";
   width: 100%;
