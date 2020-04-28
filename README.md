@@ -1,18 +1,14 @@
 # autotest
 
+First launch the back end server (port 3000) then the front end server (port 3001)
 ## Back
-   change directory:
-     > cd autotestback
-
-   install dependencies:
-     > npm install
-
-   run the app:
-     > SET DEBUG=autotestback:* & npm start
-     or > npm start
+  1. Change directory: > `cd autotestback`
+  2. Install dependencies: > `npm install`
+  3. Run the app:  > `SET DEBUG=autotestback:* & npm start` or > `npm start`
 
     http://localhost:3000/
 
+  4. Database manager : install DB Browser for SQlite
 
 Order of calls / stacktrace:
 1. /routes/index.js
@@ -27,23 +23,18 @@ Order of calls / stacktrace:
 Success! Created autotestfront at C:\Projects\autotest\autotestfront
 Inside that directory, you can run several commands:
 
-  npm start
-    Starts the development server.
-
-  npm run build
-    Bundles the app into static files for production.
-
-  npm test
-    Starts the test runner.
-
-  npm run eject
-    Removes this tool and copies build dependencies, configuration files
-    and scripts into the app directory. If you do this, you can’t go back!
+  1. Starts the development server: > `npm start`
+  2. Bundles the app into static files for production: > `npm run build`
+  3. Starts the test runner: > `npm test`
+  4. Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back! > `npm run eject`
 
 We suggest that you begin by typing:
 
-  cd autotestfront
-  npm start
+  > `cd autotestfront`
+
+  > `npm start`
+
   http://localhost:3001
 
 
@@ -65,6 +56,3 @@ Ok assuming you are using Windows please try the following steps:
     Close and reopen your terminal window.
 
     Run the command again.
-
-I hope this helps - there is a good tutorial here https://simpleprogrammer.com/selenium-with-node-js/
-shareimprove this answer
