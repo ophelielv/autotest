@@ -1,15 +1,4 @@
-
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./db/autotest.db', sqlite3.OPEN_READWRITE, (err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Connected to the in-memory SQlite database.');
-});
-  
-db.serialize(() => {
-
-  const createStmt = [
+const createStmt = [
     `CREATE TABLE IF NOT EXISTS Suite (
       suite_id INTEGER PRIMARY KEY AUTOINCREMENT,
       code TEXT NOT NULL UNIQUE,
@@ -47,40 +36,5 @@ db.serialize(() => {
       value TEXT NOT NULL
     );`
   ];
-    
-  createStmt.forEach(stmt => db.run(stmt))
 
-
-
-  // const stmt = db.prepare(`INSERT INTO lorem VALUES (?)`);
-
-  // for (let i = 0; i < 10; i++) {
-  //   stmt.run(`Ipsum ` + i);
-  // }
-
-  // stmt.finalize();
-
-  // db.each(`SELECT rowid AS id, info FROM lorem`, function (err, row) {
-  //   console.log(err, row.id + ': ' + row.info);
-  // });
-
-  // db.serialize(() => {
-  //   db.each(`SELECT PlaylistId as id,
-  //                 Name as name
-  //          FROM playlists`, (err, row) => {
-  //     if (err) {
-  //       console.error(err.message);
-  //     }
-  //     console.log(row.id + "\t" + row.name);
-  //   });
-  // });
-});
-
-db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Close the database connection.');
-});
-
-module.export = db;
+module.exports = createStmt;
