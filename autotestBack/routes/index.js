@@ -2,7 +2,8 @@ const express = require('../node_modules/express');
 const router = express.Router();
 const MochaService = require('../services/mocha.service');
 
-const database = require('../repositories/sqlite');
+// const database = require('../repositories/sqlite');
+// database.serialize();
 
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // support json encoded bodies
@@ -19,7 +20,6 @@ router.get('/', (req, res, next) => {
  * GET users page.
  */
 router.get('/users', async (req, res, next) => {
-  database.serialize();
 
   const mochaService = new MochaService('test1');
   const results = await mochaService.run();
