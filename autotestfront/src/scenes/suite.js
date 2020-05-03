@@ -8,7 +8,7 @@ import Button from '../components/button';
 import Test from '../components/test';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
 
-import getAll from '../repository/axios'
+import getAll from '../repository/suite.repository'
 
 function Suite() {
   getAll();

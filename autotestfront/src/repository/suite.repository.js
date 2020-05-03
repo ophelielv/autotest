@@ -1,11 +1,14 @@
+/**
+ * Suite repository
+ */
 import axios from 'axios';
 import env from './env'
 
 const getAll = async () => {
   try {
-    console.log(`${env.urlBack}/get-all`)
-    const response = await axios.get(`${env.urlBack}/get-all`);
-    console.log(response);
+    const response = await axios.get(`${env.urlBack}/suites/get-all`);
+    console.log(response.data);
+    return response.data;
   } catch (error) {
     console.error(error);
   }

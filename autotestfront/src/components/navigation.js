@@ -1,18 +1,13 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import { Link } from "react-router-dom";
 import './navigation.css';
-import getAll from '../repository/dataType.repository';
+import getAll from '../repository/suite.repository';
 
 function Navigation(props) {
-  getAll();
-  const suites = [
-    {
-      id: 1, name: 'Suite 1',
-    },
-    {
-      id: 2, name: 'Suite 2',
-    }
-  ]
+  const [suites, setSuites] = useState([]);
+  
+  // getAll().then(suites => setSuites(suites));
+
   return (
     <nav className="App-nav">
       <ul className="level-1">
@@ -21,7 +16,7 @@ function Navigation(props) {
           <ul className="level-2">
             {suites.map((suite, idx) =>
               <li className="link-hover" key={`suite-${idx}`}>
-                <Link className="link-2" to={`/suite/${suite.id}`} key={`link-suite-${suite.id}`}>{suite.name}</Link>
+                <Link className="link-2" to={`/suite/${suite.suite_id}`} key={`link-suite-${suite.suite_id}`}>{suite.name}</Link>
               </li>
             )}
           </ul>

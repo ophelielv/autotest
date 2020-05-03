@@ -9,10 +9,28 @@ const { formatError} = require('../services/formatJson');
  * 
  * @param {*} database 
  */
+const getAllShort = async (database) => {
+  const sql = `SELECT suite_id, name FROM Suite`;
+  const params = [];
+
+  const sqlRequest = new Promise( (resolve, reject) => {
+    database.all(sql, params, (err, rows) => {
+      if (err) {
+        reject(formatError(err));
+      } 
+      resolve(rows)
+   });
+  });
+
+  return await sqlRequest;
+}
+
+/**
+ * 
+ * @param {*} database 
+ */
 const getAll = async (database) => {
-  const sql = `SELECT * FROM Suite
-    LEFT JOIN Test ON Test.suite_id = Suite.suite_id
-    WHERE Suite.suite_id=1`;
+  const sql = `SELECT * FROM Suite`;
   const params = [];
 
   const sqlRequest = new Promise( (resolve, reject) => {
@@ -50,5 +68,6 @@ const getById = async (database, id) => {
 
 module.exports = {
     getAll,
+    getAllShort,
     getById
 };

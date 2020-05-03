@@ -4,12 +4,6 @@
 
 const formatError = err => ({ error: err.message });
 
-const formatDataResult = rows => ({
-    message: "success",
-    data: rows
-});
-
 module.exports = {
-    formatError,
-    formatDataResult
+    formatError
 }

@@ -4,8 +4,6 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-// Services
-const { formatDataResult} = require('../services/formatJson');
 // Selenium test
 const MochaService = require('../services/mocha.service');
 // Repository
@@ -45,20 +43,20 @@ router.get("/datatypes/get-all", async (req, res, next) => {
     res.status(400).json(result);
     return;
   }
-  res.json(formatDataResult(result));
+  res.json(result);
 });
 
 /**
  * Get all suites.
  */
 router.get("/suites/get-all", async (req, res, next) => {
-  const result = await suiteRepository.getAll(database);
+  const result = await suiteRepository.getAllShort(database);
 
   if(result.error){
     res.status(400).json(result);
     return;
   }
-  res.json(formatDataResult(result));
+  res.json(result);
 });
 
 /**
@@ -71,7 +69,7 @@ router.get("/suite/get/:id", async (req, res, next) => {
     res.status(400).json(result);
     return;
   }
-  res.json(formatDataResult(result));
+  res.json(result);
 });
 
 /**
