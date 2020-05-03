@@ -1,8 +1,9 @@
 const express = require('../node_modules/express');
 const router = express.Router();
 const MochaService = require('../services/mocha.service');
+const { formatDataResult} = require('../services/formatJson');
 const database = require('../repositories/database');
-
+const suiteRepository = require('../repositories/suite.repository');
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -32,42 +33,27 @@ router.get('/users', async (req, res, next) => {
 /**
  * Get the list of all suites
  */
-router.get("/suites/get-all", (req, res, next) => {
-  const sql = "SELECT * FROM Suite";
-  const params = []
-  
-  database.all(sql, params, (err, rows) => {
-    if (err) {
-      res.status(400).json({"error":err.message});
-      return;
-    }
-    console.log(rows);
-    res.json({
-      "message":"success",
-      "data":rows
-    })
-  });
+router.get("/suites/get-all", async (req, res, next) => {
+  const result = await suiteRepository.getAll(database);
+
+  if(result.error){
+    res.status(400).json(result);
+    return;
+  }
+  res.json(formatDataResult(result));
 });
 
 /**
  * Get info about a test suite + previous results
  */
-router.get("/suite/get/:id", (req, res, next) => {
-  const sql = "SELECT * FROM Suite WHERE suite_id=?";
-  const params = [req.params.id];
-  
-  database.all(sql, params, (err, rows) => {
-    if (err) {
-      res.status(400).json({"error":err.message});
-      return;
-    }
-    console.log(rows);
-    res.json({
-        "message":"success",
-        "data":rows
-    })
-  });
-  // res.json({ message: `Get test id: ${req.params.id}` });
+router.get("/suite/get/:id", async (req, res, next) => {
+  const result = await suiteRepository.getById(database, id);
+
+  if(result.error){
+    res.status(400).json(result);
+    return;
+  }
+  res.json(formatDataResult(result));
 });
 
 /**
