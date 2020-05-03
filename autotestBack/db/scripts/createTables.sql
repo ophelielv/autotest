@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS ParameterName (
     FOREIGN KEY (data_type_id) REFERENCES DataType (data_type_id),
     FOREIGN KEY (test_id) REFERENCES TEST (test_id)
 );
+
 CREATE TABLE IF NOT EXISTS ParameterValue (
     parameter_value_id INTEGER PRIMARY KEY AUTOINCREMENT,
     parameter_name_id INTEGER,

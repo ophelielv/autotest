@@ -8,43 +8,46 @@ INSERT INTO Suite (suite_id, code, name, description) VALUES(
 
 
 -- TEST
-INSERT INTO Test (test_id, suite_id, code, order, name, description) VALUES(
+INSERT INTO Test (test_id, suite_id, code, num_order, name, description) VALUES(
     1, 1, 'T1', 1,
     'First test', 
-    'Description', 
+    'Description' 
 );
 
-INSERT INTO Test (test_id, suite_id, code, order, name, description) VALUES(
+INSERT INTO Test (test_id, suite_id, code, num_order, name, description) VALUES(
     2, 1, 'T2', 2, 
     'Second test', 
-    'Description', 
+    'Description' 
 );
 
-INSERT INTO Test (test_id, suite_id, code, order, name, description) VALUES(
-    3, 1, 'T3', 3
+INSERT INTO Test (test_id, suite_id, code, num_order, name, description) VALUES(
+    3, 1, 'T3', 3,
     'Third test', 
-    'Description', 
+    'Description' 
 );
 
 -- PARAMETERNAME
+-- Test 1
 INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(1, 1, 1, 'Login');
 INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(2, 4, 1, 'Password');
 
+-- Test 2
 INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(3, 3, 2, 'chip number');
 INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(4, 1, 2, 'set');
 INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(5, 1, 2, 'table');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(5, 2, 2, 'production date');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(6, 2, 2, 'production date');
 
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(6, 1, 3, 'address');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(7, 3, 3, 'number');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(8, 1, 3, 'road');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(9, 1, 3, 'city');
+-- Test 3
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(7, 1, 3, 'address');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(8, 3, 3, 'number');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(9, 1, 3, 'road');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(10, 1, 3, 'city');
 
 -- PARAMETERVALUE
-INSERT INTO ParameterName (parameter_value_id, parameter_name_id, value) VALUES(1, 1, 'gilbert.davros@gmail.com');
-INSERT INTO ParameterName (parameter_value_id, parameter_name_id, value) VALUES(2, 2, 'gidav2019');
+INSERT INTO ParameterValue (parameter_value_id, parameter_name_id, value) VALUES(1, 1, 'gilbert.davros@gmail.com');
+INSERT INTO ParameterValue (parameter_value_id, parameter_name_id, value) VALUES(2, 2, 'gidav2019');
 
 -- ITERATION
-INSERT INTO Iteration (iteration_id, suite_id, date, done, passed, result) VALUES (
+INSERT INTO Iteration (iteration_id, suite_id, date, done, passed, result) VALUES (
     1, 1, datetime('now'), 0, 0, NULL
 );
