@@ -1,12 +1,17 @@
+// Server
 const express = require('../node_modules/express');
 const router = express.Router();
-const MochaService = require('../services/mocha.service');
-const { formatDataResult} = require('../services/formatJson');
-const database = require('../repositories/database');
-const suiteRepository = require('../repositories/suite.repository');
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+// Services
+const { formatDataResult} = require('../services/formatJson');
+// Selenium test
+const MochaService = require('../services/mocha.service');
+// Repository
+const database = require('../repositories/database');
+const suiteRepository = require('../repositories/suite.repository');
+const dataTypeRepository = require('../repositories/dataType.repository');
 
 // const md5 = require('md5');
 // db.run(insert, ["admin", "admin@example.com", md5("admin123456")]);
@@ -31,7 +36,20 @@ router.get('/users', async (req, res, next) => {
 });
 
 /**
- * Get the list of all suites
+ * Get all dataTypes.
+ */
+router.get("/datatypes/get-all", async (req, res, next) => {
+  const result = await dataTypeRepository.getAll(database);
+
+  if(result.error){
+    res.status(400).json(result);
+    return;
+  }
+  res.json(formatDataResult(result));
+});
+
+/**
+ * Get all suites.
  */
 router.get("/suites/get-all", async (req, res, next) => {
   const result = await suiteRepository.getAll(database);
