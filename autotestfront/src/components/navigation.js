@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './navigation.css';
+import getAll from '../repository/dataType.repository';
 
 function Navigation(props) {
+  getAll();
   const suites = [
     {
       id: 1, name: 'Suite 1',
