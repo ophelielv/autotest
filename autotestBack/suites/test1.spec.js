@@ -19,7 +19,7 @@ describe('Connection to google drive', async () => {
     await driver.quit();
   });
 
-  it('should be "Drive"', async () => {
+  it('Page title should be "Drive"', async () => {
     const myConnectionPage = new ConnectionPage(driver);
     await myConnectionPage.connectToDrive();
 

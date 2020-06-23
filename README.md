@@ -45,7 +45,7 @@ Ok assuming you are using Windows please try the following steps:
 
     Download the latest version of ChromeDriver from here http://chromedriver.storage.googleapis.com/index.html
 
-    Extract the zip and place the contents somewhere you know where it is for example "C:\Users\UserName\AppData\ChromeDriver"
+    Extract the zip and place the contents somewhere you know where it is for example "C:\Users\UserName\AppData\Local\ChromeDriver" ou  "C:\Users\UserName\AppData\ChromeDriver"
 
     Go to your Control Panel -> System -> Edit the System Variables. Click on the "environment variables" button.
 
