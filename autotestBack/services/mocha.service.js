@@ -6,7 +6,7 @@ const Mocha = require('mocha');
 class MochaService {
 
   constructor(testName) {
-    const TESTS_DIR = 'suites';
+    const TESTS_DIR = 'seleniumTests/suites';
     const TIMEOUT = 60 * 1000;
 
     this.mocha = new Mocha({

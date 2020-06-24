@@ -3,7 +3,7 @@
  * SUITE REPOSITORY
  * **************************************************************************
  */
-const { formatError} = require('../services/formatJson');
+const { formatError} = require('../../services/formatJson');
 
 /**
  * 

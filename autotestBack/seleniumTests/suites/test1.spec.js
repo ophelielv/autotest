@@ -2,7 +2,7 @@
 // or // const { expect } = require('chai'); ???
 const assert = require('assert');
 const ConnectionPage = require('../pages/connectionPage');
-const SeleniumService = require('../services/selenium.service');
+const SeleniumService = require('../../services/selenium.service');
 
 console.log("TEST1.SPEC.JS");
 
@@ -20,10 +20,15 @@ describe('Connection to google drive', async () => {
   });
 
   it('Page title should be "Drive"', async () => {
-    const myConnectionPage = new ConnectionPage(driver);
-    await myConnectionPage.connectToDrive();
-
-    const title = await myConnectionPage.getTitle();
-    assert.equal(title, "Drive");
+    try{
+      const myConnectionPage = new ConnectionPage(driver);
+      await myConnectionPage.connectToDrive();
+  
+      const title = await myConnectionPage.getTitle();
+      assert.equal(title, "Drive");
+    }
+    catch(error){
+      console.log(error);
+    }
   });
 });
