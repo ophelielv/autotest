@@ -1,4 +1,5 @@
 const { Builder } = require('selenium-webdriver');
+require('chromedriver');
 
 class SeleniumService {
 

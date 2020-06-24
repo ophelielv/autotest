@@ -10,12 +10,12 @@ describe('Connection to google drive', async () => {
   let driver;
 
   // runs once before the first test in this block
-  before(async () => {
+  beforeEach(async () => {
     driver = await (new SeleniumService()).build();
   });
 
   // runs once after the last test in this block
-  after(async () => {
+  afterEach(async () => {
     await driver.quit();
   });
 
