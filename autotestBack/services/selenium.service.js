@@ -1,5 +1,4 @@
 const { Builder } = require('selenium-webdriver');
-require('chromedriver');
 
 class SeleniumService {
 
@@ -8,9 +7,9 @@ class SeleniumService {
     return this.driver;
   }
 
-  async quit() {
-    return await this.driver.quit();
-  }
+  // async quit() {
+  //   return await this.driver.quit();
+  // }
 }
 
 module.exports = SeleniumService;

@@ -28,6 +28,7 @@ router.get('/test1', async (req, res, next) => {
 
   const mochaService = new MochaService('test1');
   const results = await mochaService.run();
+  mochaService.clearCache();
   console.log('RESULT: ', results);
 
   res.render('index', { title: 'Test1 ' + JSON.stringify(results) });
