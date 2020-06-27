@@ -1,5 +1,4 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
-require('chromedriver');
 const { URL_CONNECTION_TO_DRIVE } = require('../../constants/urls.constants');
 const { USERNAME, USERPASS } = require('../../constants/users.constants');
 
