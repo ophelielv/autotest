@@ -1,15 +1,23 @@
+import axios from 'axios';
+
 export const FETCH_DATATYPES_COMPLETE = 'FETCH_DATATYPE_COMPLETE';
 
 export function fetchAllDatatypes() {
 	return function (dispatch) {
 		// return fetch(window.config.apiUrl + '/suites/get-all')
-		return fetch('http://localhost:3000/datatypes/get-all')
-			.then(res => res.json())
-			.then(data =>
+		return axios
+			.get('http://localhost:3000/datatypes/get-all')
+			.then(response =>
 				dispatch({
 					type: FETCH_DATATYPES_COMPLETE,
-					datatypes: data,
+					datatypes: response.data,
 				})
-			);
+			)
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function () {
+				// always executed
+			});
 	};
 }
