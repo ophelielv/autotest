@@ -193,7 +193,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/suites/get-all",
+					"raw": "http://localhost:3000/suites/get-all-short",
 					"protocol": "http",
 					"host": [
 						"localhost"

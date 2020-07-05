@@ -6,10 +6,6 @@ router.use(bodyParser.json()); // support json encoded bodies
 router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // Selenium test
 const MochaService = require('../services/mocha.service');
-// Repository
-const database = require('../db/repositories/database');
-const suiteRepository = require('../db/repositories/suite.repository');
-const dataTypeRepository = require('../db/repositories/dataType.repository');
 
 // const md5 = require('md5');
 // db.run(insert, ["admin", "admin@example.com", md5("admin123456")]);
@@ -18,82 +14,44 @@ const dataTypeRepository = require('../db/repositories/dataType.repository');
  * GET home page.
  */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: `Express home` });
+	res.render('index', { title: `Express home` });
 });
 
 /**
  * GET users page.
  */
 router.get('/test1', async (req, res, next) => {
+	const mochaService = new MochaService('test1');
+	const results = await mochaService.run();
+	mochaService.clearCache();
+	console.log('RESULT: ', results);
 
-  const mochaService = new MochaService('test1');
-  const results = await mochaService.run();
-  mochaService.clearCache();
-  console.log('RESULT: ', results);
+	res.render('index', { title: 'Test1 ' + JSON.stringify(results) });
+});
 
-  res.render('index', { title: 'Test1 ' + JSON.stringify(results) });
+
+
+/**
+ * Launch a test
+ */
+router.put('/launch', (req, res, next) => {
+	console.log(req.body);
+	res.status(200).json({ message: `Launch test id: ${req.body.id}` });
 });
 
 /**
- * Get all dataTypes.
+ * Update a suite
  */
-router.get("/datatypes/get-all", async (req, res, next) => {
-  const result = await dataTypeRepository.getAll(database);
-
-  if(result.error){
-    res.status(400).json(result);
-    return;
-  }
-  res.status(200).json(result);
-});
-
-/**
- * Get all suites.
- */
-router.get("/suites/get-all", async (req, res, next) => {
-  const result = await suiteRepository.getAllShort(database);
-
-  if(result.error){
-    res.status(400).json(result);
-    return;
-  }
-  res.status(200).json(result);
-});
-
-/**
- * Get info about a test suite + previous results
- */
-router.get("/suite/get/:id", async (req, res, next) => {
-  const result = await suiteRepository.getById(database, id);
-
-  if(result.error){
-    res.status(400).json(result);
-    return;
-  }
-  res.status(200).json(result);
-});
-
-/**
- * Launch a test 
- */
-router.put("/launch", (req, res, next) => {
-  console.log(req.body)
-  res.status(200).json({ message: `Launch test id: ${req.body.id}` });
-});
-
-/**
- * Update a suite 
- */
-router.put("/update", (req, res, next) => {
-  console.log(req.body)
-  res.status(200).json({ message: `Update suite id: ${req.body.id}` });
+router.put('/update', (req, res, next) => {
+	console.log(req.body);
+	res.status(200).json({ message: `Update suite id: ${req.body.id}` });
 });
 
 /**
  * Delete a suite
  */
-router.delete("/delete/:id", (req, res, next) => {
-  res.status(200).json({ message: `Delete suite id: ${req.params.id}` });
+router.delete('/delete/:id', (req, res, next) => {
+	res.status(200).json({ message: `Delete suite id: ${req.params.id}` });
 });
 
 module.exports = router;
