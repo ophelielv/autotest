@@ -10,7 +10,6 @@ export default function (state = defaultState, action) {
 		// case FETCH_SUITE_COMPLETE:
 		// 	return action.suite;
 		case FETCH_ALLSUITES_COMPLETE:
-			console.log(action, 'ssssssssssss');
 			return action.suites;
 		default:
 			return state;

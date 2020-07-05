@@ -13,8 +13,8 @@ function Navigation(props) {
 	}, []); // le tableau vide permet de ne lancer la fonction qu'une fois
 	// c'est l'équivalent du componentDidMount()
 
-	const suites = useSelector(state => state.suites);
-	console.log(suites);
+  const suites = useSelector(state => state.suites);
+  
 	return (
 		<nav className="App-nav">
 			<ul className="level-1">

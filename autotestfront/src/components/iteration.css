@@ -1,5 +1,5 @@
 article.iteration {
-  background: #C7DCAA; 
+  background: #c9d9ca; 
   display: flex;
   flex-direction: column;
 }
@@ -36,11 +36,16 @@ article.iteration thead {
 }
  
 article.iteration tbody tr:nth-child(even){ 
-  background: #8e9c84;
+  background: #849c90;
+} 
+
+article.iteration tbody tr:nth-child(odd){ 
+  background: #fff;
 } 
 
 article.iteration tbody tr:hover {
-  background: #ddefd2;
+  background: #3C3C40;
+  color: #fff;
 }
 
 article.iteration p {
