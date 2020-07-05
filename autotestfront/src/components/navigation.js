@@ -3,18 +3,17 @@ import React, { /*useState,*/ useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './navigation.css';
-import { fetchAllSuites } from '../actions';
+import { fetchAllSuiteShort } from '../actions/suites';
 
-function Navigation(props) {
+function Navigation() {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchAllSuites());
+		dispatch(fetchAllSuiteShort());
 		// eslint-disable-next-line
-	}, []); // le tableau vide permet de ne lancer la fonction qu'une fois
-	// c'est l'équivalent du componentDidMount()
+	}, []);
 
-  const suites = useSelector(state => state.suites);
-  
+	const suites = useSelector(state => state.suites);
+
 	return (
 		<nav className="App-nav">
 			<ul className="level-1">
