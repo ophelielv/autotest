@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 
 const store = configureStore();
-console.log(store);
 
 // Fonts
 // import '@openfonts/yantramanav_all';

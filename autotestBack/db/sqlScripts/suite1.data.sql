@@ -51,3 +51,6 @@ INSERT INTO ParameterValue (parameter_value_id, parameter_name_id, value) VALUES
 INSERT INTO Iteration (iteration_id, suite_id, date, done, passed, result) VALUES (
     1, 1, datetime('now'), 0, 0, NULL
 );
+INSERT INTO Iteration (iteration_id, suite_id, date, done, passed, result) VALUES (
+    2, 1, datetime('now'), 1, 1, NULL
+);

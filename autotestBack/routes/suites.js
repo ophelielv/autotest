@@ -26,7 +26,7 @@ router.get('/get-all-short', async (req, res, next) => {
  * Get info about a test suite + previous results
  */
 router.get('/get/:id', async (req, res, next) => {
-	const result = await suiteRepository.getById(database, id);
+	const result = await suiteRepository.getById(database, req.params.id);
 
 	if (result.error) {
 		res.status(400).json(result);

@@ -3,71 +3,96 @@
  * SUITE REPOSITORY
  * **************************************************************************
  */
-const { formatError} = require('../../services/formatJson');
+const { formatError } = require('../../services/formatJson');
 
 /**
- * 
- * @param {*} database 
+ *
+ * @param {*} database
  */
-const getAllShort = async (database) => {
-  const sql = `SELECT suite_id, name FROM Suite`;
-  const params = [];
+const getAllShort = async database => {
+	const sql = `SELECT suite_id, name FROM Suite`;
+	const params = [];
 
-  const sqlRequest = new Promise( (resolve, reject) => {
-    database.all(sql, params, (err, rows) => {
-      if (err) {
-        reject(formatError(err));
-      } 
-      resolve(rows)
-   });
-  });
+	const sqlRequest = new Promise((resolve, reject) => {
+		database.all(sql, params, (err, rows) => {
+			if (err) {
+				reject(formatError(err));
+			}
+			resolve(rows);
+		});
+	});
 
-  return await sqlRequest;
-}
+	return await sqlRequest;
+};
 
 /**
- * 
- * @param {*} database 
+ *
+ * @param {*} database
  */
-const getAll = async (database) => {
-  const sql = `SELECT * FROM Suite`;
-  const params = [];
+const getAll = async database => {
+	const sql = `SELECT * FROM Suite`;
+	const params = [];
 
-  const sqlRequest = new Promise( (resolve, reject) => {
-    database.all(sql, params, (err, rows) => {
-      if (err) {
-        reject(formatError(err));
-      } 
-      resolve(rows)
-   });
-  });
+	const sqlRequest = new Promise((resolve, reject) => {
+		database.all(sql, params, (err, rows) => {
+			if (err) {
+				reject(formatError(err));
+			}
+			resolve(rows);
+		});
+	});
 
-  return await sqlRequest;
-}
+	return await sqlRequest;
+};
 
 /**
- * 
- * @param {*} database 
- * @param {*} id 
+ *
+ * @param {*} database
+ * @param {*} id
  */
 const getById = async (database, id) => {
-  const sql = `SELECT * FROM Suite WHERE suite_id=?`;
-  const params = [id];
-  
-  const sqlRequest = new Promise ((resolve, reject) => {
-    database.all(sql, params, (err, rows) => {
-      if (err) {
-        reject(formatError(err));
-      }
-      resolve(rows);
-    });
-  });
+	const sql = `SELECT json_object(
+      'id', s.suite_id, 
+      'code', s.code,
+      'name', s.name,
+      'description', s.description,
+      'tests', (
+        SELECT json_group_array(json_object(
+          'id', t.test_id,
+          'num_order', t.num_order,
+          'code', t.code,
+          'name', t.name,
+          'description', t.description
+        )) FROM Test t WHERE t.suite_id = s.suite_id
+        
+      ),
+      'iterations', (
+        SELECT json_group_array(json_object(
+          'id', i.iteration_id,
+          'date', i.date,
+          'done', i.done,
+          'passed', i.passed,
+          'result', i.result
+        )) FROM Iteration i WHERE i.suite_id = s.suite_id
+      ) 
+    ) suite FROM Suite s WHERE s.suite_id = ?;`;
 
-  return await sqlRequest;
-}
+	const params = [id];
+
+	const sqlRequest = new Promise((resolve, reject) => {
+		database.get(sql, params, (err, rows) => {
+			if (err) {
+				reject(formatError(err));
+			}
+			resolve(rows);
+		});
+	});
+
+	return await sqlRequest;
+};
 
 module.exports = {
-    getAll,
-    getAllShort,
-    getById
+	getAll,
+	getAllShort,
+	getById,
 };
