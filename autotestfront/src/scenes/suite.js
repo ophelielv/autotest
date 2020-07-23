@@ -15,10 +15,10 @@ function Suite() {
 	useEffect(() => {
 		dispatch(fetchSuite(suiteId));
 		// eslint-disable-next-line
-	}, []);
+	}, [suiteId]);
 
 	const suite = useSelector(state => state.suite);
-	
+
 	const tests = suite && suite.tests ? suite.tests : [];
 	const iterations = suite && suite.iterations ? suite.iterations : [];
 
