@@ -62,20 +62,26 @@ const getById = async (database, id) => {
           'num_order', t.num_order,
           'code', t.code,
           'name', t.name,
-          'description', t.description
-        )) FROM Test t WHERE t.suite_id = s.suite_id
-        
+          'description', t.description,
+          'parameters', (
+            SELECT json_group_array(json_object(
+              'id', pn.parameter_name_id,
+              'name', pn.name,
+              'value', ( SELECT pv.value FROM ParameterValue pv WHERE pv.parameter_name_id = pn.parameter_name_id)
+            )) FROM ParameterName pn WHERE pn.test_id = t.test_id
+          )
+        ))  FROM Test t WHERE t.suite_id = s.suite_id
       ),
       'iterations', (
         SELECT json_group_array(json_object(
-          'id', i.iteration_id,
-          'date', i.date,
-          'done', i.done,
-          'passed', i.passed,
-          'result', i.result
+        'id', i.iteration_id,
+        'date', i.date,
+        'done', i.done,
+        'passed', i.passed,
+        'result', i.result
         )) FROM Iteration i WHERE i.suite_id = s.suite_id
-      ) 
-    ) suite FROM Suite s WHERE s.suite_id = ?;`;
+      )
+  ) suite FROM Suite s WHERE s.suite_id = ?;`;
 
 	const params = [id];
 

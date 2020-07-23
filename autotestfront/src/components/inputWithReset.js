@@ -24,7 +24,12 @@ function InputWithReset({ label, currentValue }) {
 	return (
 		<div className="input-group">
 			<label>{label}</label>
-			<input type="text" name="inp" value={value} onChange={handleChange} />
+			<input
+				type="text"
+				name="inp"
+				value={value ? value : ''}
+				onChange={handleChange}
+			/>
 
 			{showReset && (
 				<Button

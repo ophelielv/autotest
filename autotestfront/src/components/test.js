@@ -5,24 +5,31 @@ import InputWithReset from '../components/inputWithReset';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 
 function Test(props) {
-  const { test } = props;
+	const { test } = props;
+	
+	const clickOnSave = () => console.log('TODO');
 
-  const clickOnSave = () => console.log("TODO");
+	return (
+		<article className="test">
+			<h3>{test.name}</h3>
 
-  return (
-    <article className="test">
-      <h3>{test.name}</h3>
+			<p>{test.description}</p>
 
-      <p>{test.description}</p>
+			{test.parameters &&
+				test.parameters.length > 0 &&
+				test.parameters.map(param => (
+					<InputWithReset
+						label={param.name}
+						currentValue={param.value}
+						key={param.id}
+					/>
+				))}
 
-      <InputWithReset label="label" currentValue="chips" />
-      <InputWithReset label="label" currentValue="set" />
-      <InputWithReset label="label" currentValue="table" />
-      <InputWithReset label="label" currentValue="num" />
-      <Button icon={faSave} onClick={clickOnSave}>Save</Button>
-
-    </article>
-  );
+			<Button icon={faSave} onClick={clickOnSave}>
+				Save
+			</Button>
+		</article>
+	);
 }
 
 export default Test;
