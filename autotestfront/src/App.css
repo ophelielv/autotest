@@ -9,15 +9,20 @@
 @font-face { font-family: 'IstokWeb'; font-weight: 900; src: local('IstokWeb'), url(./fonts/IstokWeb-Bold.ttf) format('truetype'); }
 
 .App {
-  background-color: #BEBDBF;
   color: #3C3C40;
   display: grid;
-  grid-template-columns: auto 1fr;
   font-family: IstokWeb;
+  grid-template-areas: 
+  "header header header"
+  "nav content content"
+  "footer footer footer";
+  grid-template-columns:  200px 1fr 1fr;
+  grid-template-rows:auto 1fr auto;
+  height: 100vh;
 }
 
 .App-header {
-  grid-column: 1 / -1;
+  grid-area: header;
   padding: 20px 10px;
   text-align: center;
   background-color: #0D0D0D;
@@ -27,12 +32,14 @@
   letter-spacing: 3px;
 }
 
-/* .App-footer {
+.App-footer {
+  grid-area: footer;
   text-align: center;
   padding: 20px 10px;
-  grid-column: 1 / -1;
-  background-color: brown;
-} */
+  background-color: #781e1e;
+  color: #BEBDBF;
+  font-family: Nunito;
+}
 
 /* COLORS
   #86aef4 light blue  #adcafd
@@ -66,7 +73,9 @@ label {
 }
 
 .Main-container{ 
+  grid-area: content;
   padding: 20px 40px;
+  background: #BEBDBF;
 }
 
 section {
