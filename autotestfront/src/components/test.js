@@ -6,7 +6,7 @@ import { faSave } from '@fortawesome/free-solid-svg-icons';
 
 function Test(props) {
 	const { test } = props;
-	
+
 	const clickOnSave = () => console.log('TODO');
 
 	return (
@@ -21,6 +21,7 @@ function Test(props) {
 					<InputWithReset
 						label={param.name}
 						currentValue={param.value}
+						datatype={param.datatype}
 						key={param.id}
 					/>
 				))}

@@ -67,7 +67,8 @@ const getById = async (database, id) => {
             SELECT json_group_array(json_object(
               'id', pn.parameter_name_id,
               'name', pn.name,
-              'value', ( SELECT pv.value FROM ParameterValue pv WHERE pv.parameter_name_id = pn.parameter_name_id)
+              'value', ( SELECT pv.value FROM ParameterValue pv WHERE pv.parameter_name_id = pn.parameter_name_id),
+              'datatype', ( SELECT d.name FROM DataType d WHERE d.data_type_id = pn.data_type_id)
             )) FROM ParameterName pn WHERE pn.test_id = t.test_id
           )
         ))  FROM Test t WHERE t.suite_id = s.suite_id

@@ -3,7 +3,7 @@ import Button from './button';
 import './inputWithReset.css';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
-function InputWithReset({ label, currentValue }) {
+function InputWithReset({ label, currentValue, datatype }) {
 	const [value, setValue] = useState(currentValue);
 	const [initValue /*, setInitValue*/] = useState(currentValue);
 	const [showReset, setShowReset] = useState(false);
@@ -20,12 +20,12 @@ function InputWithReset({ label, currentValue }) {
 		setValue(initValue);
 		setShowReset(false);
 	};
-
+	console.log(datatype);
 	return (
 		<div className="input-group">
 			<label>{label}</label>
 			<input
-				type="text"
+				type={datatype}
 				name="inp"
 				value={value ? value : ''}
 				onChange={handleChange}
