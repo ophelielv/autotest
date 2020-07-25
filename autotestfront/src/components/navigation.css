@@ -47,3 +47,10 @@
 .App-nav a:visited { 
   color: #8EA67C; 
 }
+
+@media(max-width: 768px){
+  .App-nav  {
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+}

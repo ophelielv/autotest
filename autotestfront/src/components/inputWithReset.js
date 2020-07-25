@@ -20,7 +20,7 @@ function InputWithReset({ label, currentValue, datatype }) {
 		setValue(initValue);
 		setShowReset(false);
 	};
-	console.log(datatype);
+
 	return (
 		<div className="input-group">
 			<label>{label}</label>
