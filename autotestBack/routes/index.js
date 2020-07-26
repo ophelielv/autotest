@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 });
 
 /**
- * GET users page.
+ * GET test page page.
  */
 router.get('/test1', async (req, res, next) => {
 	const mochaService = new MochaService('test1');

@@ -7,6 +7,7 @@ import Iteration from '../components/iteration';
 import Button from '../components/button';
 import Test from '../components/test';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
+import { launchSuite } from '../actions/suite';
 
 function Suite() {
 	const dispatch = useDispatch();
@@ -21,10 +22,18 @@ function Suite() {
 
 	const tests = suite && suite.tests ? suite.tests : [];
 	const iterations = suite && suite.iterations ? suite.iterations : [];
+	const code = suite ? suite.code : null;
+
+	const launchTest = async () => {
+		if (code) {
+			dispatch(launchSuite(code));
+		}
+		return;
+	};
 
 	return (
 		<main className="Main-container Suite">
-			<h1>Tests suite {suiteId}</h1>
+			<h1>Tests suite {code}</h1>
 			<h2>Presentation</h2>
 			<p>
 				Suite description. At vero eos et accusamus et iusto odio dignissimos
@@ -49,18 +58,19 @@ function Suite() {
 			</section>
 
 			<section className="launch-button">
-				<Button type="push" level="launch" icon={faRocket}>
+				<Button type="push" level="launch" icon={faRocket} onClick={launchTest}>
 					Launch tests
 				</Button>
 			</section>
 
-			<section className="iteration-section">
-				<h2>Previous launches and results</h2>
-				{iterations.length > 0 &&
-					iterations.map(iteration => (
+			{iterations.length > 0 && (
+				<section className="iteration-section">
+					<h2>Previous launches and results</h2>
+					{iterations.map(iteration => (
 						<Iteration iteration={iteration} key={iteration.id} />
 					))}
-			</section>
+				</section>
+			)}
 		</main>
 	);
 }

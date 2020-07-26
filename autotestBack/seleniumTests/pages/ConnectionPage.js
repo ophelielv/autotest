@@ -1,6 +1,5 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { URL_CONNECTION_TO_DRIVE } = require('../../constants/urls.constants');
-const { USERNAME, USERPASS } = require('../../constants/users.constants');
 
 class ConnectionPage {
 
@@ -11,13 +10,13 @@ class ConnectionPage {
   // ************************************************************ //
   // ******************** Controls ****************************** //
   // ************************************************************ //
-  async connectToDrive() {
+  async connectToDrive(login, password) {
     try {
       await this.driver.get(URL_CONNECTION_TO_DRIVE);
       await this.driver.sleep(8000);
-      await this.driver.findElement(By.name('identifier')).sendKeys(USERNAME, Key.RETURN);
+      await this.driver.findElement(By.name('identifier')).sendKeys(login, Key.RETURN);
       await this.driver.sleep(8000);
-      await this.driver.findElement(By.name('password')).sendKeys(USERPASS, Key.RETURN);
+      await this.driver.findElement(By.name('password')).sendKeys(password, Key.RETURN);
       await this.driver.sleep(8000);
     } catch (error) {
       console.error(error);
