@@ -4,70 +4,42 @@ console.log('TEST1.SPEC.JS');
 const assert = require('assert');
 const ConnectionPage = require('../pages/connectionPage');
 const SeleniumService = require('../../services/selenium.service');
+const {
+	extractFromTest,
+	getTestParamsFromDb,
+} = require('../../services/getTestParams.service');
 
-const database = require('../../db/repositories/database');
-const suiteRepository = require('../../db/repositories/suite.repository');
+console.log(1);
 
-const getTestParams = async () => {
-	try {
-		const result = await suiteRepository.getByColumn(
-			database,
-			'code',
-			'ST1',
-			false
-		);
-		const suite = JSON.parse(result.suite);
-		// console.log(' --- ', suite, ' **** ');
-		// suite.tests.map(test => console.log(test.parameters));
+describe('Connection to google drive', () => {
+	let driver, testParams;
 
-		if (result.error) {
-			console.log(result.error);
-			return;
-		}
-		return suite.tests;
-	} catch (err) {
-		console.log(err);
-	}
-};
+	before(async () => {
+		testParams = await getTestParamsFromDb();
+		console.log(2, extractFromTest(testParams, 1, 'Login'));
+	});
 
-const getParam = (tests, testNumber, name) => {
-	console.log(' iiiiiiii ', tests, tests.length, testNumber);
-	if (0 < tests.length && tests.length <= testNumber) {
-		console.log(' uusssssssssssss ');
-		const test = tests[testNumber - 1];
-		console.log(test);
-		const param = test ? test[name] : null;
-		console.log(param);
-		return param ? param.value : null;
-	}
-	return null;
-};
-
-describe('Connection to google drive', async () => {
-	let driver;
-	const testParams = await getTestParams();
-
-	getParam(testParams, 1, 'Login');
-	// getParam(testParams, 1, 'Password')
-	return;
-	// runs once before the first test in this block
 	beforeEach(async () => {
+		console.log(3);
 		driver = await new SeleniumService().build();
 	});
 
-	// runs once after the last test in this block
 	afterEach(async () => {
+		console.log(4);
 		await driver.quit();
 	});
 
 	it('Page title should be "Drive"', async () => {
+		console.log(5);
 		try {
+			console.log(6);
 			const myConnectionPage = new ConnectionPage(driver);
 			await myConnectionPage.connectToDrive(
-				getParam(testParams, 1, 'Login'),
-				getParam(testParams, 1, 'Password')
+				extractFromTest(testParams, 1, 'Login'),
+				extractFromTest(testParams, 1, 'Password')
 			);
 
+			console.log(7);
 			const title = await myConnectionPage.getTitle();
 			assert.equal(title, 'Drive');
 		} catch (error) {
