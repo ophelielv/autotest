@@ -1,7 +1,15 @@
-# autotest
+# autotest [WIP]
+## Description
+This app allows you to :
+* Launch a test suites with Selenium from the browser
+* Change test-case’s parameters (like login, username, ...) in a friendly interface
+* Keep history of every launches and their parameters.
 
+Made in Javascript with ExpressJS, Mocha, Selenium and ReactJS.
+
+## Get started
 First launch the back end server (port 3000) then the front end server (port 3001)
-## Back
+### Back
   1. Change directory: > `cd autotestback`
   2. Install dependencies: > `npm install`
   3. Run the app:  > `SET DEBUG=autotestback:* & npm start` or > `npm start`
@@ -19,7 +27,7 @@ Order of calls / stacktrace:
 * /constants/urls.constants.js
 * /constants/users.constants.js
 
-## Front 
+### Front 
 Success! Created autotestfront at C:\Projects\autotest\autotestfront
 Inside that directory, you can run several commands:
 
@@ -38,7 +46,7 @@ We suggest that you begin by typing:
   http://localhost:3001
 
 
-## Chrome driver
+### Note about Chrome driver
 
 https://stackoverflow.com/questions/26191142/selenium-nodejs-chromedriver-path
 Ok assuming you are using Windows please try the following steps:
