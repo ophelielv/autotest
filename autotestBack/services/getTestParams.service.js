@@ -3,7 +3,6 @@ const suiteRepository = require('../db/repositories/suite.repository');
 
 const getTestParamsFromDb = async () => {
 	try {
-		console.log('get params');
 		const result = await suiteRepository.getByColumn(
 			database,
 			'code',

@@ -53,22 +53,11 @@ router.get('/get/:id', async (req, res, next) => {
  * Get info about a test suite + previous results
  */
 router.get('/launch/:code', async (req, res, next) => {
-	// try {
-	// 	const result = await suiteRepository.getByColumn(
-	// 		database,
-	// 		'code',
-	// 		req.params.code,
-	// 		false
-	// 	);
-	// 	const suite = JSON.parse(result.suite);
-	// 	console.log(' --- ', suite, ' **** ');
-	// 	suite.tests.map(test => console.log(test.parameters));
 	try {
 		const mochaService = new MochaService('test1');
 		const results = await mochaService.run();
 		mochaService.clearCache();
-		console.log('RESULT: ', results);
-		res.status(200).json(result);
+		res.status(200).json(results);
 	} catch (err) {
 		console.log(err);
 		res.status(400).json(err);

@@ -5,91 +5,92 @@ const Mocha = require('mocha');
 //   path = require('path');
 
 class MochaService {
-  
-  constructor(testName) {
-    const TIMEOUT = 60 * 1000;
-    const TESTS_DIR = 'seleniumTests\\suites';
-    this.testPath = `${TESTS_DIR}\\${testName}.spec.js`;
+	constructor(testName) {
+		const TIMEOUT = 60 * 1000;
+		const TESTS_DIR = 'seleniumTests\\suites';
+		this.testPath = `${TESTS_DIR}\\${testName}.spec.js`;
 
-    this.results = new Array();
-    
-    this.mocha = (new Mocha({
-      // ui: 'bdd',
-      // reporter: 'list'
-      timeout: TIMEOUT.toString(),
-    }))
-    .addFile(this.testPath);
-  }
+		// this.results = new Array();
 
-  /**
-   * 
-   * @param {*} resultsArray 
-   * @param {*} title 
-   * @param {*} state 
-   * @param {*} error 
-   */
-  addOneResult(resultsArray, title, state, error = null) {
-    resultsArray.push({
-      title,
-      state,
-      error
-    });
-    return resultsArray;
-  }
+		this.mocha = new Mocha({
+			// ui: 'bdd',
+			// reporter: 'list'
+			timeout: TIMEOUT.toString(),
+		}).addFile(this.testPath);
+	}
 
-  /**
-   * Run mocha suites
-   * Runner is wrapped in a promise
-   * @returns a custom array with results
-   */
-  async run() {
+	/**
+	 *
+	 * @param {*} resultsArray
+	 * @param {*} title
+	 * @param {*} state
+	 * @param {*} error
+	 */
+	setOneResult(title, state, error = null) {
+		return {
+			title,
+			state,
+			error,
+		};
+	}
 
-    return new Promise((resolve, reject) => {
+	/**
+	 * Run mocha suites
+	 * Runner is wrapped in a promise
+	 * @returns a custom array with results
+	 */
+	async run() {
+		return new Promise((resolve, reject) => {
+			let stats = {
+				total: 0,
+				passed: 0,
+				errors: 0,
+			};
+			let successes = [];
+			let errors = [];
 
-      this.mocha.run()
-      .on('test', (test) => console.log('Test started: ' + test.title))
-      .on('test end', (test) => console.log('Test done: ' + test.title))
-      .on('pass', (test) => {
-        console.log('Test passed', test.title + ' ' + test.state);
-        this.results = this.addOneResult(
-          this.results,
-          test.title,
-          test.state
-        );
-        resolve(this.results);
-      })
-      .on('fail', (test, err) => {
-        console.log('Test fail', err);
-        this.results = this.addOneResult(
-          this.results,
-          test.title,
-          test.state,
-          err
-        );
-        
-        reject(this.results);
-      })
-      .on('end', () => {
-        console.log('All done !');
-      });
-    });
-        
-  }
- 
-  /**
-   * Clearing "require" Node cache to run 
-   * tests in imported files multiple times
-   */
-  clearCache() {
-    const testPath = this.testPath;
-    Object.keys(require.cache).forEach(function(key) {
-      if(key.includes(testPath)){
-        delete require.cache[key];
-        return;
-      }
-    });
-    // delete require.cache[require.resolve(this.testPath)];
-  }
+			this.mocha
+				.run()
+				.on('test', test => {
+					stats.total = ++stats.total;
+					console.log('* Test started: ' + test.title);
+				})
+				.on('test end', test => console.log('* Test done: ' + test.title))
+				.on('pass', test => {
+					console.log('* Test passed', test.title + ' ' + test.state);
+					stats.passed = ++stats.passed;
+					successes.push(this.setOneResult(test.title, test.state));
+				})
+				.on('fail', (test, err) => {
+					console.log('* Test fail', err);
+					stats.errors = ++stats.errors;
+					errors.push(this.setOneResult(test.title, test.state, err));
+				})
+				.on('end', () => {
+					console.log('All done !');
+					resolve({
+						stats,
+						successes,
+						errors,
+					});
+				});
+		});
+	}
+
+	/**
+	 * Clearing "require" Node cache to run
+	 * tests in imported files multiple times
+	 */
+	clearCache() {
+		const testPath = this.testPath;
+		Object.keys(require.cache).forEach(function (key) {
+			if (key.includes(testPath)) {
+				delete require.cache[key];
+				return;
+			}
+		});
+		// delete require.cache[require.resolve(this.testPath)];
+	}
 }
 
 module.exports = MochaService;
