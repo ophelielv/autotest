@@ -67,11 +67,15 @@ class MochaService {
 					errors.push(this.setOneResult(test.title, test.state, err));
 				})
 				.on('end', () => {
-					console.log('All done !');
+          console.log('All done !');
+
+          // TODO : save iteration data + history
+
 					resolve({
 						stats,
 						successes,
-						errors,
+            errors,
+            // TODO : params
 					});
 				});
 		});

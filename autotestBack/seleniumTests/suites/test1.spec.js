@@ -7,7 +7,7 @@ const SeleniumService = require('../../services/selenium.service');
 const {
 	extractFromTest,
 	getTestParamsFromDb,
-} = require('../../services/getTestParams.service');
+} = require('../../services/testParams.service');
 
 describe('Connection to google drive', () => {
 	let driver, testParams;

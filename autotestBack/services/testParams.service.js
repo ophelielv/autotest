@@ -32,6 +32,10 @@ const extractFromTest = (tests, testNumber, name) => {
 	return param ? param.value : null;
 };
 
+const saveHistory = () => {
+	// TODO
+};
+
 module.exports = {
 	getTestParamsFromDb,
 	extractFromTest,
