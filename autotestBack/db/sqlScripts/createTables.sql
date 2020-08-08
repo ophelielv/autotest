@@ -27,7 +27,8 @@ CREATE TABLE IF NOT EXISTS ParameterName (
     parameter_name_id INTEGER PRIMARY KEY AUTOINCREMENT,
     data_type_id INTEGER, 
     test_id INTEGER,
-    name TEXT NOT NULL,
+    label TEXT NOT NULL,
+    html_name TEXT NOT NULL,
     FOREIGN KEY (data_type_id) REFERENCES DataType (data_type_id),
     FOREIGN KEY (test_id) REFERENCES TEST (test_id)
 );

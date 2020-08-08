@@ -71,7 +71,8 @@ const getByColumn = async (
           'parameters', (
             SELECT json_group_array(json_object(
               'id', pn.parameter_name_id,
-              'name', pn.name,
+              'html_name', pn.html_name,
+              'label', pn.label,
               'value', ( SELECT pv.value FROM ParameterValue pv 
                          WHERE pv.parameter_name_id = pn.parameter_name_id
                          ORDER BY pv.parameter_value_id DESC ),

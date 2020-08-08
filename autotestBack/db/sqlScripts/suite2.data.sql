@@ -23,12 +23,12 @@ INSERT INTO Test (test_id, suite_id, code, num_order, name, description) VALUES(
 
 -- PARAMETERNAME
 -- Test 1
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(11, 1, 4, 'Login');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(12, 4, 4, 'Password');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(11, 1, 4, 'Login', 'login');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(12, 4, 4, 'Password', 'password');
 
 -- Test 2
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(13, 1, 5, 'first name');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(14, 1, 5, 'last name');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(13, 1, 5, 'first name', 'first-name');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(14, 1, 5, 'last name', 'last-name');
 
 -- PARAMETERVALUE
 INSERT INTO ParameterValue (parameter_value_id, parameter_name_id, value) VALUES(3, 1, 'gilbert.davros@gmail.com');

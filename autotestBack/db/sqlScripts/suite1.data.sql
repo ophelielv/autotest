@@ -28,20 +28,20 @@ INSERT INTO Test (test_id, suite_id, code, num_order, name, description) VALUES(
 
 -- PARAMETERNAME
 -- Test 1
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(1, 1, 1, 'Login');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(2, 4, 1, 'Password');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(1, 1, 1, 'Login', 'login');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(2, 4, 1, 'Password', 'password');
 
 -- Test 2
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(3, 3, 2, 'chip number');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(4, 1, 2, 'set');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(5, 1, 2, 'table');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(6, 2, 2, 'production date');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(3, 3, 2, 'chip number', 'chip-number');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(4, 1, 2, 'set', 'set');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(5, 1, 2, 'table', 'table');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(6, 2, 2, 'production date', 'production-date');
 
 -- Test 3
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(7, 1, 3, 'address');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(8, 3, 3, 'number');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(9, 1, 3, 'road');
-INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, name) VALUES(10, 1, 3, 'city');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(7, 1, 3, 'address', 'address');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(8, 3, 3, 'number', 'number');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(9, 1, 3, 'road', 'road');
+INSERT INTO ParameterName (parameter_name_id, data_type_id, test_id, label, html_name) VALUES(10, 1, 3, 'city', 'city');
 
 -- PARAMETERVALUE
 INSERT INTO ParameterValue (parameter_value_id, parameter_name_id, value) VALUES(1, 1, 'gilbert.davros@gmail.com');
