@@ -32,11 +32,12 @@ function initializeDefaultValue(parameters) {
 
 function Test(props) {
 	const { test } = props;
-
-	const { register, handleSubmit, errors, reset } = useForm({
-		defaultValues: initializeDefaultValue(test.parameters),
+	const defaultValues = initializeDefaultValue(test.parameters);
+	const { register, handleSubmit, errors, reset, setValue } = useForm({
+		defaultValues,
+		shouldFocusError: true,
 	});
-	console.log(errors);
+	console.log("errors", errors);
 	const onSubmit = data => console.log('SUBMIT', data);
 
 	return (
@@ -44,7 +45,7 @@ function Test(props) {
 			<h3>{test.name}</h3>
 
 			<p>{test.description}</p>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)} noValidate>
 				{test.parameters &&
 					test.parameters.length > 0 &&
 					test.parameters.map(param => (
@@ -53,9 +54,10 @@ function Test(props) {
 								label={param.label}
 								htmlName={param.html_name}
 								register={register}
-								currentValue={param.value}
+								defaultValue={param.value}
 								datatype={param.datatype}
 								key={param.id}
+								setValue={setValue}
 							/>
 							{/* {Object.entries(errors).filter(
 								x => x[param.html_name] !== ''

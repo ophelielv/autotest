@@ -6,27 +6,13 @@ import { faUndo } from '@fortawesome/free-solid-svg-icons';
 function InputWithReset({
 	label,
 	htmlName,
-	currentValue,
+	defaultValue,
 	datatype,
 	register,
 	required,
+	setValue
 }) {
-	// const [value, setValue] = useState(currentValue);
-	// const [initValue /*, setInitValue*/] = useState(currentValue);
-	// const [showReset, setShowReset] = useState(false);
-
-	// const handleChange = evt => {
-	// 	if (!showReset) {
-	// 		setShowReset(true);
-	// 	}
-
-	// 	setValue(evt.target.value);
-	// };
-
-	// const clickOnReset = () => {
-	// 	setValue(initValue);
-	// 	setShowReset(false);
-	// };
+	const [showReset, setShowReset] = useState(false);
 
 	return (
 		<div className="input-group">
@@ -35,14 +21,12 @@ function InputWithReset({
 				name={htmlName}
 				ref={register({ required })}
 				type={datatype}
+				onChange={() => {
+					if (!showReset) {
+						setShowReset(true);
+					}
+				}}
 				required
-			/>
-			{/* <label>{label}</label>
-			<input
-				type={datatype}
-				name="inp"
-				value={value ? value : ''}
-				onChange={handleChange}
 			/>
 
 			{showReset && (
@@ -50,12 +34,16 @@ function InputWithReset({
 					type="default"
 					level="secondary"
 					icon={faUndo}
-					onClick={clickOnReset}
+					onClick={() => {
+						setValue(htmlName, defaultValue);
+						setShowReset(false);
+					}}
 				>
 					Reset
 				</Button>
-			)} */}
-		</div>
+			)
+			}
+		</div >
 	);
 }
 
