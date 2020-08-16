@@ -35,22 +35,18 @@ const saveParam = async (database, paramsInArray, testId) => {
 
     database.serialize(() => {
       database.run('begin transaction');
-      console.log()
-      paramsInArray.forEach((p, index) => {
-        console.log([p.value, p.html_name, testId]);
 
-        return database.run(sql, [p.value, p.html_name, testId], err => {
-          if (err) reject(formatError(err))
-        })
-      });
+      paramsInArray.forEach((p, index) => database.run(sql, [p.value, p.html_name, testId], err => {
+        if (err) reject(formatError(err));
+      })
+      );
 
       database.run("commit", err => {
         if (err) {
           reject(formatError(err));
         }
-        resolve(paramsInArray.length)
+        resolve({ success: `Success: ${paramsInArray.length} row${paramsInArray.length <= 1 ? '' : 's'} updated` })
       });
-
     });
   });
 

@@ -10,11 +10,15 @@ export function saveTest({ testId, parameters }) {
       .then(function (response) {
         dispatch({
           type: SAVE_TEST_COMPLETE,
-          suite: response.data ? JSON.parse(response.data.suite) : null,
+          message: response.data ? response.data.success : '',
         });
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (err) {
+        dispatch({
+          type: SAVE_TEST_ERROR,
+          message: err.data ? err.data.error : '',
+        });
+        console.log(err);
       });
   };
 }

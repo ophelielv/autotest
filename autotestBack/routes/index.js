@@ -35,7 +35,6 @@ router.get('/test1', async (req, res, next) => {
  * Launch a test
  */
 router.put('/launch', (req, res, next) => {
-	console.log(req.body);
 	res.status(200).json({ message: `Launch test id: ${req.body.id}` });
 });
 
@@ -43,7 +42,6 @@ router.put('/launch', (req, res, next) => {
  * Update a suite
  */
 router.put('/update', (req, res, next) => {
-	console.log(req.body);
 	res.status(200).json({ message: `Update suite id: ${req.body.id}` });
 });
 

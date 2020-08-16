@@ -43,7 +43,6 @@ function Test(props) {
 	});
 
 	const onSubmit = parameters => {
-		console.log('SUBMIT', parameters, "TEST ID", test.id);
 		dispatch(saveTest({ testId: test.id, parameters }));
 	}
 
