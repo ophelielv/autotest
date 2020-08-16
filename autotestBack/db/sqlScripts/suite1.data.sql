@@ -49,8 +49,23 @@ INSERT INTO ParameterValue (parameter_value_id, parameter_name_id, value) VALUES
 
 -- ITERATION
 INSERT INTO Iteration (iteration_id, suite_id, date, done, passed, result) VALUES (
-    1, 1, datetime('now'), 0, 0, NULL
+    1, 1, datetime('now'), 1, 0, NULL
 );
 INSERT INTO Iteration (iteration_id, suite_id, date, done, passed, result) VALUES (
-    2, 1, datetime('now'), 1, 1, NULL
+    2, 1, datetime('now'), 0, 0, NULL
+);
+
+
+-- History
+INSERT INTO HISTORY (history_id, parameter_value_id, iteration_id) VALUES (
+    1, 1, 1
+);
+INSERT INTO HISTORY (history_id, parameter_value_id, iteration_id) VALUES (
+    2, 2, 1
+);
+INSERT INTO HISTORY (history_id, parameter_value_id, iteration_id) VALUES (
+    3, 3, 2
+);
+INSERT INTO HISTORY (history_id, parameter_value_id, iteration_id) VALUES (
+    4, 4, 2
 );

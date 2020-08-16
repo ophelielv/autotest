@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './test.css';
 import Button from '../components/button';
 import InputWithReset from '../components/inputWithReset';
+import { saveTest } from '../actions/test';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 
@@ -30,22 +32,27 @@ function initializeDefaultValue(parameters) {
 	}, {});
 }
 
+// TODO : error message
 function Test(props) {
+	const dispatch = useDispatch();
 	const { test } = props;
 	const defaultValues = initializeDefaultValue(test.parameters);
-	const { register, handleSubmit, errors, reset, setValue } = useForm({
+	const { register, handleSubmit, /*errors, */ setValue } = useForm({
 		defaultValues,
 		shouldFocusError: true,
 	});
-	console.log("errors", errors);
-	const onSubmit = data => console.log('SUBMIT', data);
+
+	const onSubmit = parameters => {
+		console.log('SUBMIT', parameters, "TEST ID", test.id);
+		dispatch(saveTest({ testId: test.id, parameters }));
+	}
 
 	return (
 		<article className="test">
 			<h3>{test.name}</h3>
 
 			<p>{test.description}</p>
-			<form onSubmit={handleSubmit(onSubmit)} noValidate>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				{test.parameters &&
 					test.parameters.length > 0 &&
 					test.parameters.map(param => (
@@ -59,13 +66,9 @@ function Test(props) {
 								key={param.id}
 								setValue={setValue}
 							/>
-							{/* {Object.entries(errors).filter(
-								x => x[param.html_name] !== ''
-							) && <span>{errors[param.html_name]}</span>} */}
 						</div>
 					))}
-				{/* {errors.exampleRequired && <span>This field is required</span>} */}
-				<Button icon={faSave} onClick={handleSubmit} type="submit">
+				<Button icon={faSave} onClick={handleSubmit(onSubmit)} type="submit">
 					Save
 				</Button>
 			</form>

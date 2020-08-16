@@ -36,7 +36,36 @@ const saveHistory = () => {
 	// TODO
 };
 
+/**
+ * Change object :
+ * {
+ *    login: 'gilbert.davros@gmail.com',
+ *    password: 'qwerty123',
+ * }
+ * 
+ * into :
+ * [{
+ *   html_name: 'login',
+ *   value: 'gilbert.davros@gmail.com'
+ * },{
+ *   html_name: 'passwonl',
+ *   value: 'qwerty123'
+ * }]
+ */
+function paramsToArray(object) {
+	const params = [];
+	for (const propertyName in object) {
+		params.push({
+			html_name: propertyName,
+			value: object[propertyName]
+		});
+	}
+
+	return params;
+}
+
 module.exports = {
 	getTestParamsFromDb,
 	extractFromTest,
+	paramsToArray
 };

@@ -19,7 +19,6 @@ router.get('/get-all', async (req, res, next) => {
 		res.status(400).json(result);
 		return;
 	}
-	console.log(result);
 	res.status(200).json(result);
 });
 
