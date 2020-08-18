@@ -17,6 +17,9 @@
   margin: 11px 0px;
 }
 
+.notification-quit-btn{
+  padding-left: 14px;
+}
 
 .danger {
   background: #ab2020;

@@ -3,11 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import './toast.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { MESSAGE_DANGER, MESSAGE_SUCCESS, MESSAGE_INFO, MESSAGE_WARNING } from '../reducers/message';
+import {
+  MESSAGE_DANGER,
+  MESSAGE_SUCCESS,
+  MESSAGE_INFO,
+  MESSAGE_WARNING,
+  deleteMessageById
+} from '../actions/message';
 
 
 function Toast() {
-
+  const dispatch = useDispatch();
   const messages = useSelector(state => state.messages);
 
   return (
@@ -17,10 +23,10 @@ function Toast() {
           <div key={i} className={`notification-toast ${setColor(toast.type)}`}>
             <div>
               <p className="notification-message">
-                {toast.message}
+                {toast.id} - {toast.message}
               </p>
             </div>
-            <button>
+            <button className="notification-quit-btn" onClick={() => dispatch(deleteMessageById(toast.id))}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
