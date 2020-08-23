@@ -3,7 +3,7 @@ import './test.css';
 import Button from '../components/button';
 import InputWithReset from '../components/inputWithReset';
 import { saveTest } from '../actions/test';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { faSave } from '@fortawesome/free-solid-svg-icons';
 

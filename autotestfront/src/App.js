@@ -5,7 +5,7 @@ import './App.css';
 
 import Suite from './scenes/suite';
 import Home from './scenes/home';
-import Toast from './components/toast';
+import Toasts from './components/toasts';
 
 function App() {
 	return (
@@ -16,7 +16,7 @@ function App() {
 				</header>
 
 				<Navigation />
-				<Toast />
+				<Toasts />
 
 				{/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

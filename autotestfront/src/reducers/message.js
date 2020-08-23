@@ -1,13 +1,11 @@
-import { SAVE_TEST_COMPLETE, SAVE_TEST_ERROR } from '../actions/test';
 import {
-	MESSAGE_DANGER,
-	MESSAGE_SUCCESS,
-	DELETE_MESSAGE_BY_ID
+	DELETE_MESSAGE_BY_ID,
+	ADD_MESSAGE
 } from '../actions/message';
 
 const defaultState = [];
 
-const setId = (state) => {
+const incrementId = (state) => {
 	const maxId = state.reduce((max, message) => {
 		return message.id > max ? message.id : max
 	}, 0);
@@ -16,21 +14,13 @@ const setId = (state) => {
 
 export default function (state = defaultState, action) {
 	switch (action.type) {
-		case SAVE_TEST_COMPLETE:
+		case ADD_MESSAGE:
 			return [
 				...state,
 				{
-					id: setId(state),
-					type: MESSAGE_SUCCESS,
-					message: action.message
-				}];
-		case SAVE_TEST_ERROR:
-			return [
-				...state,
-				{
-					id: setId(state),
-					type: MESSAGE_DANGER,
-					message: action.message
+					id: incrementId(state),
+					message: action.message,
+					messageType: action.messageType,
 				}];
 		case DELETE_MESSAGE_BY_ID:
 			return state.filter(message => message.id !== action.id);
